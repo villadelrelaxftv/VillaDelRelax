@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>VILLA DEL RELAX</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --turquesa: #0e7490;
+  --turquesa-claro: #dff7f6;
+  --arena: #f6efe6;
+  --azul-profundo: #12343b;
+  --blanco: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--arena);
+  color: var(--azul-profundo);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 18px 28px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.78);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  letter-spacing: 3px;
+  color: var(--turquesa);
+  font-weight: 600;
+}
+
+nav a, .idiomas span {
+  margin-left: 13px;
+  text-decoration: none;
+  color: var(--azul-profundo);
+  font-size: 13px;
+}
+
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--turquesa-claro), var(--arena));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 25px 50px;
+}
+
+.hero-content {
+  max-width: 820px;
+  animation: aparecer 1.4s ease;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  letter-spacing: 6px;
+  margin-bottom: 10px;
+  color: var(--turquesa);
+}
+
+.hero h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-style: italic;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.hero h3 {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.hero p {
+  font-size: 18px;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: auto;
+}
+
+.botones {
+  margin-top: 32px;
+}
+
+.boton {
+  display: inline-block;
+  margin: 9px;
+  padding: 15px 26px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all .3s ease;
+}
+
+.principal {
+  background: var(--turquesa);
+  color: white;
+}
+
+.secundario {
+  border: 2px solid var(--turquesa);
+  color: var(--turquesa);
+  background: rgba(255,255,255,0.45);
+}
+
+.boton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(14,116,144,0.25);
+}
+
+section {
+  padding: 80px 25px;
+  text-align: center;
+}
+
+section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  color: var(--turquesa);
+}
+
+.subtitulo {
+  max-width: 650px;
+  margin: 0 auto 25px;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.aviso {
+  background: white;
+  padding: 35px;
+  border-radius: 24px;
+  max-width: 760px;
+  margin: auto;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+}
+
+.aviso p {
+  line-height: 1.8;
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 22px;
+  max-width: 1000px;
+  margin: 35px auto 0;
+}
+
+.servicio {
+  background: white;
+  padding: 28px 18px;
+  border-radius: 24px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+}
+
+.servicio span {
+  display: block;
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.servicio h3 {
+  margin: 8px 0;
+  color: var(--turquesa);
+}
+
+.servicio p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.dia {
+  background: white;
+}
+
+.dia p {
+  max-width: 780px;
+  margin: auto;
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+.whatsapp-flotante {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #25D366;
+  color: white;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 58px;
+  font-size: 28px;
+  text-decoration: none;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+  z-index: 200;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-caja {
+  background: white;
+  padding: 35px;
+  max-width: 430px;
+  border-radius: 24px;
+  text-align: center;
+}
+
+.popup-caja h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  color: var(--turquesa);
+}
+
+.popup-caja button {
+  margin: 8px;
+  padding: 12px 22px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cancelar {
+  background: #ddd;
+}
+
+.continuar {
+  background: var(--turquesa);
+  color: white;
+}
+
+footer {
+  background: var(--azul-profundo);
+  color: white;
+  text-align: center;
+  padding: 35px 20px;
+  font-size: 14px;
+}
+
+footer a {
+  color: white;
+  margin: 0 8px;
+  text-decoration: none;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero h1 {
+    font-size: 44px;
+  }
+
+  .hero h2 {
+    font-size: 25px;
+  }
+
+  .hero h3 {
+    font-size: 17px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">VILLA DEL RELAX</div>
+
+  <nav>
+    <a href="#villa">La Villa</a>
+    <a href="#experiencia">Experiencia</a>
+    <a href="#contacto">Contacto</a>
+    <span class="idiomas">
+      <span>🇪🇸</span>
+      <span>🇬🇧</span>
+      <span>🇩🇪</span>
+      <span>🇮🇹</span>
+    </span>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-content">
+    <h1>VILLA DEL RELAX</h1>
+    <h2>Un lugar donde el tiempo se detiene.</h2>
+    <h3>Bienvenido a tu refugio en Fuerteventura.</h3>
+
+    <p>
+      Villa privada con piscina climatizada para hasta 10 huéspedes en Corralejo,
+      junto al Parque Natural de las Dunas.
+    </p>
+
+    <div class="botones">
+      <a class="boton principal" href="https://wa.me/34666157193">💬 Contactar por WhatsApp</a>
+      <a class="boton secundario" href="#" onclick="mostrarAviso()">📅 Ver disponibilidad</a>
+      <a class="boton secundario" href="tel:+34666157193">📞 Llamar</a>
+    </div>
+  </div>
+</div>
+
+<section id="villa">
+  <h2>Descubre VILLA DEL RELAX</h2>
+  <div class="aviso">
+    <p>
+      Hay lugares que se visitan y lugares que permanecen en la memoria.
+      Villa del Relax nace para ofrecer mucho más que un alojamiento:
+      un espacio donde desconectar, compartir y crear recuerdos que querrás
+      llevarte contigo mucho después de regresar a casa.
+    </p>
+  </div>
+</section>
+
+<section id="porque">
+  <h2>¿Por qué elegir VILLA DEL RELAX?</h2>
+  <p class="subtitulo">Detalles pensados para que tu estancia sea cómoda, tranquila y especial.</p>
+
+  <div class="servicios-grid">
+    <div class="servicio">
+      <span>🏊</span>
+      <h3>Piscina climatizada</h3>
+      <p>Disfruta de un baño en cualquier época del año.</p>
+    </div>
+
+    <div class="servicio">
+      <span>👨‍👩‍👧‍👦</span>
+      <h3>Hasta 10 huéspedes</h3>
+      <p>Ideal para familias y grupos de amigos.</p>
+    </div>
+
+    <div class="servicio">
+      <span>📍</span>
+      <h3>Corralejo</h3>
+      <p>Junto al Parque Natural de las Dunas, playas, restaurantes y supermercados.</p>
+    </div>
+
+    <div class="servicio">
+      <span>💙</span>
+      <h3>Atención directa</h3>
+      <p>Contacta directamente con nosotros para resolver dudas o preparar tu estancia.</p>
+    </div>
+  </div>
+</section>
+
+<section id="experiencia">
+  <h2>Vive la experiencia</h2>
+  <p class="subtitulo">Todo lo que necesitas para una estancia perfecta.</p>
+
+  <div class="servicios-grid">
+    <div class="servicio"><span>🛏️</span><h3>4 dormitorios</h3><p>Espacios amplios y confortables para descansar.</p></div>
+    <div class="servicio"><span>🚿</span><h3>3 baños</h3><p>Uno de ellos exterior, junto a la piscina.</p></div>
+    <div class="servicio"><span>🌴</span><h3>Jardín privado</h3><p>Un espacio exterior para relajarte y disfrutar del sol.</p></div>
+    <div class="servicio"><span>🍽️</span><h3>Barbacoa</h3><p>Perfecta para compartir comidas al aire libre.</p></div>
+    <div class="servicio"><span>🏓</span><h3>Ping-pong</h3><p>Diversión para todas las edades.</p></div>
+    <div class="servicio"><span>🐾</span><h3>Mascotas bienvenidas</h3><p>Porque las vacaciones también son para ellos.</p></div>
+  </div>
+</section>
+
+<section id="dia" class="dia">
+  <h2>Un día en Villa del Relax</h2>
+  <p>
+    Despierta con la calma de Corralejo, desayuna al aire libre,
+    disfruta de un baño en la piscina climatizada y termina el día
+    compartiendo una barbacoa bajo el cielo de Fuerteventura.
+  </p>
+</section>
+
+<section id="contacto">
+  <h2>Reserva directa</h2>
+  <p>Consulta disponibilidad o contacta con nosotros directamente.</p>
+  <a class="boton principal" href="https://wa.me/34666157193">💬 WhatsApp</a>
+  <a class="boton secundario" href="#" onclick="mostrarAviso()">📅 Ver disponibilidad</a>
+</section>
+
+<footer>
+
+<p>VILLA DEL RELAX · Corralejo · Fuerteventura</p>
+
+<p>
+
+<a href="privacidad.html">Política de privacidad</a> ·
+
+<a href="cookies.html">Política de Cookies</a> ·
+
+<a href="aviso-legal.html">Aviso Legal</a>
+
+</p>
+
+<p style="margin-top:20px;font-size:13px;opacity:.8;">
+
+© 2026 Villa del Relax · Todos los derechos reservados.
+
+</p>
+
+</footer>
+
+<a class="whatsapp-flotante" href="https://wa.me/34666157193">💬</a>
+
+<div id="popup" class="popup">
+  <div class="popup-caja">
+    <h2>Consultar disponibilidad</h2>
+
+    <p>
+      Estás a punto de acceder al calendario oficial de reservas de
+      <b>Villa del Relax</b>.
+    </p>
+
+    <p>
+      La disponibilidad y las reservas online se gestionan de forma segura mediante nuestro colaborador <b>Holidu</b>.
+    </p>
+
+    <button class="cancelar" onclick="cerrarPopup()">Cancelar</button>
+    <button class="continuar" onclick="window.location.href='https://villa-delrelax.vacation-bookings.com/'">Continuar</button>
+  </div>
+</div>
+
+<script>
+function mostrarAviso() {
+  document.getElementById("popup").style.display = "flex";
+}
+
+function cerrarPopup() {
+  document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
