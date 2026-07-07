@@ -53,12 +53,18 @@ nav a, .idiomas span {
 
 .hero {
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--turquesa-claro), var(--arena));
+  background:
+    linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.45)),
+    url("hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 100px 25px 50px;
+}
 }
 
 .hero-content {
