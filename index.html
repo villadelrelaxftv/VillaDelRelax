@@ -26,29 +26,38 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 18px 28px;
+  padding: 18px 40px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255,255,255,0.78);
-  backdrop-filter: blur(10px);
-  z-index: 100;
+  background: rgba(0,0,0,.18);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  z-index: 1000;
+  transition: .4s;
 }
 
 .logo {
   font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  letter-spacing: 3px;
-  color: var(--turquesa);
+  font-size: 28px;
+  letter-spacing: 5px;
+  color: white;
   font-weight: 600;
 }
 
-nav a, .idiomas span {
-  margin-left: 13px;
+nav a,
+.idiomas span {
+  margin-left: 22px;
   text-decoration: none;
-  color: var(--azul-profundo);
-  font-size: 13px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  transition: .3s;
+}
+
+nav a:hover{
+  color:#e8d3a5;
 }
 
 .hero {
