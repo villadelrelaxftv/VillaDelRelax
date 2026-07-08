@@ -2,105 +2,368 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Villa del Relax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Villa del Relax | Corralejo, Fuerteventura</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-body{margin:0;font-family:Poppins,sans-serif;background:#f8f4ec;color:#12343b}
-header{position:fixed;top:0;width:100%;z-index:10;background:rgba(248,246,242,.95);display:flex;justify-content:space-between;align-items:center;padding:20px 45px;box-sizing:border-box}
-.logo{font-family:'Playfair Display',serif;font-size:26px;color:#12343b}
-nav a,select{margin-left:24px;text-decoration:none;color:#12343b;background:transparent;border:none;font-weight:500}
-.hero{min-height:100vh;background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url("hero.jpg") center/cover no-repeat;display:flex;align-items:flex-end;justify-content:center;text-align:center;padding:0 25px 120px;color:white}
-h1{font-family:'Playfair Display',serif;font-size:76px;margin:0}
-.linea{width:80px;height:2px;background:#d6b46c;margin:22px auto}
-.hero h2{font-size:22px;letter-spacing:3px;font-weight:400}
-.hero p{font-size:18px}
-.btn{display:inline-block;margin:12px;padding:15px 34px;border-radius:3px;text-decoration:none;font-weight:600}
-.principal{background:#f8f4ec;color:#12343b}
-.secundario{border:1px solid white;color:white}
-section{padding:90px 25px;text-align:center}
-section h2{font-family:'Playfair Display',serif;font-size:48px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;max-width:1000px;margin:45px auto 0}
-.card{background:white;padding:35px;border-radius:8px;box-shadow:0 12px 30px rgba(0,0,0,.06)}
-footer{background:#12343b;color:white;text-align:center;padding:35px}
-footer a{color:white;text-decoration:none}
-.popup{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);align-items:center;justify-content:center;z-index:99}
-.popup div{background:white;color:#12343b;max-width:420px;padding:35px;border-radius:10px;text-align:center}
-.popup button{padding:12px 22px;margin:8px;border:none;border-radius:4px}
-@media(max-width:700px){h1{font-size:48px}header{padding:16px;flex-direction:column;gap:10px}nav a,select{margin-left:10px}.hero{padding-bottom:80px}}
+:root{
+  --verde:#12343b;
+  --arena:#f8f6f2;
+  --dorado:#d6b46c;
+  --blanco:#ffffff;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:var(--arena);
+  color:var(--verde);
+}
+
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(248,246,242,.96);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 45px;
+  box-shadow:0 2px 20px rgba(0,0,0,.06);
+}
+
+.logo{
+  font-family:'Playfair Display',serif;
+  font-size:28px;
+  color:var(--verde);
+  text-decoration:none;
+}
+
+nav a{
+  margin-left:26px;
+  text-decoration:none;
+  color:var(--verde);
+  font-size:14px;
+  font-weight:500;
+}
+
+nav select{
+  margin-left:26px;
+  border:1px solid rgba(18,52,59,.25);
+  background:transparent;
+  color:var(--verde);
+  padding:8px 12px;
+  font-weight:600;
+}
+
+.hero{
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.38),rgba(0,0,0,.38)),
+    url("hero.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  text-align:center;
+  padding:140px 25px 120px;
+  color:white;
+}
+
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:78px;
+  margin:0;
+  font-weight:600;
+}
+
+.linea{
+  width:85px;
+  height:2px;
+  background:var(--dorado);
+  margin:24px auto;
+}
+
+.hero h2{
+  font-size:19px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font-weight:400;
+  margin:0 0 14px;
+}
+
+.hero p{
+  font-size:18px;
+  margin:0 0 32px;
+}
+
+.btn{
+  display:inline-block;
+  padding:15px 38px;
+  margin:8px;
+  text-decoration:none;
+  font-weight:600;
+  letter-spacing:1px;
+  border-radius:2px;
+}
+
+.btn-principal{
+  background:var(--arena);
+  color:var(--verde);
+}
+
+.btn-secundario{
+  border:1px solid white;
+  color:white;
+}
+
+section{
+  padding:100px 28px;
+  text-align:center;
+}
+
+section h2{
+  font-family:'Playfair Display',serif;
+  font-size:50px;
+  margin:0 0 22px;
+}
+
+section p{
+  max-width:720px;
+  margin:auto;
+  font-size:18px;
+  line-height:1.8;
+}
+
+.detalles{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  max-width:1000px;
+  margin:55px auto 0;
+}
+
+.detalle{
+  background:white;
+  padding:36px 24px;
+  min-height:130px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:500;
+  box-shadow:0 12px 30px rgba(0,0,0,.05);
+}
+
+.bloque{
+  background:white;
+}
+
+.reserva{
+  background:var(--verde);
+  color:white;
+}
+
+.reserva .btn-principal{
+  background:var(--dorado);
+  color:white;
+}
+
+.reserva .btn-secundario{
+  border-color:white;
+  color:white;
+}
+
+footer{
+  background:#0d292f;
+  color:white;
+  text-align:center;
+  padding:38px 20px;
+  font-size:14px;
+}
+
+footer a{
+  color:white;
+  text-decoration:none;
+  margin:0 8px;
+}
+
+.popup{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:2000;
+  align-items:center;
+  justify-content:center;
+}
+
+.popup-caja{
+  background:white;
+  color:var(--verde);
+  max-width:430px;
+  margin:20px;
+  padding:36px;
+  text-align:center;
+}
+
+.popup-caja h2{
+  font-family:'Playfair Display',serif;
+  font-size:34px;
+}
+
+.popup-caja button{
+  padding:12px 22px;
+  margin:8px;
+  border:none;
+  cursor:pointer;
+}
+
+.popup-caja .continuar{
+  background:var(--verde);
+  color:white;
+}
+
+@media(max-width:760px){
+  header{
+    flex-direction:column;
+    gap:12px;
+    padding:16px;
+  }
+
+  nav a{
+    margin-left:12px;
+    font-size:13px;
+  }
+
+  nav select{
+    margin-left:12px;
+  }
+
+  .hero{
+    padding:150px 22px 85px;
+  }
+
+  .hero h1{
+    font-size:48px;
+  }
+
+  .hero h2{
+    font-size:14px;
+    letter-spacing:2px;
+  }
+
+  section h2{
+    font-size:38px;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">Villa del Relax</div>
+  <a href="#" class="logo">Villa del Relax</a>
+
   <nav>
     <a href="#villa">La Villa</a>
     <a href="#experiencia">Experiencia</a>
     <a href="#contacto">Contacto</a>
+
     <select>
-      <option>ES</option><option>CA</option><option>EN</option><option>DE</option><option>FR</option><option>IT</option>
+      <option>ES</option>
+      <option>CA</option>
+      <option>EN</option>
+      <option>DE</option>
+      <option>FR</option>
+      <option>IT</option>
     </select>
   </nav>
 </header>
 
-<div class="hero">
+<section class="hero">
   <div>
     <h1>Villa del Relax</h1>
     <div class="linea"></div>
     <h2>Luxury Villa in Corralejo</h2>
-    <p>Tu refugio privado en Fuerteventura</p>
-    <a class="btn principal" href="https://wa.me/34666157193">Reservar</a>
-    <a class="btn secundario" href="#" onclick="mostrarAviso()">Disponibilidad</a>
+    <p>Private Pool · Sleeps 10 · Fuerteventura</p>
+
+    <a class="btn btn-principal" href="https://wa.me/34666157193">Reservar</a>
+    <a class="btn btn-secundario" href="#" onclick="mostrarAviso()">Disponibilidad</a>
   </div>
-</div>
+</section>
 
 <section id="villa">
   <h2>Menos ruido. Más calma.</h2>
-  <p>Una villa privada para desconectar, compartir y disfrutar de Fuerteventura con tranquilidad.</p>
+  <p>
+    Una villa privada pensada para desconectar, compartir y disfrutar
+    de Fuerteventura con tranquilidad, privacidad y confort.
+  </p>
 
-  <div class="grid">
-    <div class="card">Piscina climatizada</div>
-    <div class="card">Hasta 10 huéspedes</div>
-    <div class="card">4 dormitorios</div>
-    <div class="card">3 baños</div>
+  <div class="detalles">
+    <div class="detalle">Piscina climatizada</div>
+    <div class="detalle">Hasta 10 huéspedes</div>
+    <div class="detalle">4 dormitorios</div>
+    <div class="detalle">3 baños</div>
   </div>
 </section>
 
-<section id="experiencia">
+<section id="experiencia" class="bloque">
   <h2>La experiencia</h2>
-  <p>Privacidad, luz, espacio exterior y una ubicación ideal en Corralejo.</p>
+  <p>
+    Desayunos al aire libre, baños en la piscina, tardes de barbacoa
+    y la libertad de descubrir Corralejo a tu ritmo.
+  </p>
+
+  <div class="detalles">
+    <div class="detalle">Jardín privado</div>
+    <div class="detalle">Barbacoa</div>
+    <div class="detalle">Ping-pong</div>
+    <div class="detalle">Mascotas bienvenidas</div>
+  </div>
 </section>
 
-<section id="contacto">
+<section id="contacto" class="reserva">
   <h2>Reserva tu estancia</h2>
-  <a class="btn principal" href="https://wa.me/34666157193">WhatsApp</a>
-  <a class="btn secundario" href="#" onclick="mostrarAviso()" style="color:#12343b;border-color:#12343b">Ver disponibilidad</a>
+  <p>Contacta directamente con nosotros o consulta disponibilidad online.</p>
+
+  <br>
+  <a class="btn btn-principal" href="https://wa.me/34666157193">WhatsApp</a>
+  <a class="btn btn-secundario" href="#" onclick="mostrarAviso()">Ver disponibilidad</a>
 </section>
 
 <footer>
   <p>Villa del Relax · Corralejo · Fuerteventura</p>
-  <p><a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a> · <a href="aviso-legal.html">Aviso legal</a></p>
+  <p>
+    <a href="privacidad.html">Privacidad</a> ·
+    <a href="cookies.html">Cookies</a> ·
+    <a href="aviso-legal.html">Aviso legal</a>
+  </p>
 </footer>
 
 <div id="popup" class="popup">
-  <div>
+  <div class="popup-caja">
     <h2>Consultar disponibilidad</h2>
     <p>Serás redirigido al calendario oficial de reservas gestionado por Holidu.</p>
     <button onclick="cerrarPopup()">Cancelar</button>
-    <button onclick="window.location.href='https://villa-delrelax.vacation-bookings.com/'">Continuar</button>
+    <button class="continuar" onclick="window.location.href='https://villa-delrelax.vacation-bookings.com/'">Continuar</button>
   </div>
 </div>
 
 <script>
-function mostrarAviso(){document.getElementById("popup").style.display="flex"}
-function cerrarPopup(){document.getElementById("popup").style.display="none"}
+function mostrarAviso(){
+  document.getElementById("popup").style.display="flex";
+}
+
+function cerrarPopup(){
+  document.getElementById("popup").style.display="none";
+}
 </script>
 
 </body>
 </html>
-
-
-  
