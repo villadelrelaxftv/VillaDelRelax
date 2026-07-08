@@ -47,7 +47,26 @@ header {
 }
 
 nav a,
-.idiomas span {
+.selector-idioma {
+  margin-left: 22px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  transition: .3s;
+}
+
+.selector-idioma {
+  background: rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.5);
+  border-radius: 30px;
+  padding: 8px 14px;
+  color: white;
+}
+
+.selector-idioma option {
+  color: #12343b;
+}
   margin-left: 22px;
   text-decoration: none;
   color: white;
@@ -354,38 +373,49 @@ footer a {
   <div class="logo">VILLA DEL RELAX</div>
 
   <nav>
-    <a href="#villa">La Villa</a>
-    <a href="#experiencia">Experiencia</a>
-    <a href="#contacto">Contacto</a>
-    <span class="idiomas">
-      <span>🇪🇸</span>
-      <span>🇬🇧</span>
-      <span>🇩🇪</span>
-      <span>🇮🇹</span>
-    </span>
-  </nav>
+  <a href="#villa" data-key="menuVilla">La Villa</a>
+  <a href="#experiencia" data-key="menuExperiencia">Experiencia</a>
+  <a href="#contacto" data-key="menuContacto">Contacto</a>
+
+  <select id="languageSelector" class="selector-idioma" onchange="cambiarIdioma(this.value)">
+    <option value="es">🌍 Español</option>
+    <option value="en">🇬🇧 English</option>
+    <option value="de">🇩🇪 Deutsch</option>
+    <option value="it">🇮🇹 Italiano</option>
+  </select>
+</nav>
 </header>
 
 <div class="hero">
   <div class="hero-content">
-    <h1>Villa del Relax</h1>
 
-<div class="linea-dorada"></div>
+    <h1 data-key="titulo">Villa del Relax</h1>
 
-<h2>Luxury Villa in Corralejo</h2>
+    <div class="linea-dorada"></div>
 
-<h3>Tu refugio privado en Fuerteventura</h3>
+    <h2 data-key="subtitulo">Luxury Villa in Corralejo</h2>
 
-    <p>
+    <h3 data-key="refugio">Tu refugio privado en Fuerteventura</h3>
+
+    <p data-key="descripcion">
       Villa privada con piscina climatizada para hasta 10 huéspedes en Corralejo,
       junto al Parque Natural de las Dunas.
     </p>
 
     <div class="botones">
-      <a class="boton principal" href="https://wa.me/34666157193">💬 Contactar por WhatsApp</a>
-      <a class="boton secundario" href="#" onclick="mostrarAviso()">📅 Ver disponibilidad</a>
-      <a class="boton secundario" href="tel:+34666157193">📞 Llamar</a>
+      <a class="boton principal" href="https://wa.me/34666157193">
+        💬 <span data-key="whatsapp">Contactar por WhatsApp</span>
+      </a>
+
+      <a class="boton secundario" href="#" onclick="mostrarAviso()">
+        📅 <span data-key="disponibilidad">Ver disponibilidad</span>
+      </a>
+
+      <a class="boton secundario" href="tel:+34666157193">
+        📞 <span data-key="llamar">Llamar</span>
+      </a>
     </div>
+
   </div>
 </div>
 
@@ -519,6 +549,71 @@ function mostrarAviso() {
 
 function cerrarPopup() {
   document.getElementById("popup").style.display = "none";
+}
+
+const traducciones = {
+  es: {
+    menuVilla: "La Villa",
+    menuExperiencia: "Experiencia",
+    menuContacto: "Contacto",
+    titulo: "Villa del Relax",
+    subtitulo: "Un lugar donde el tiempo se detiene.",
+    refugio: "Tu refugio privado en Fuerteventura",
+    descripcion: "Villa privada con piscina climatizada para hasta 10 huéspedes en Corralejo, junto al Parque Natural de las Dunas.",
+    whatsapp: "Contactar por WhatsApp",
+    disponibilidad: "Ver disponibilidad",
+    llamar: "Llamar"
+  },
+  en: {
+    menuVilla: "The Villa",
+    menuExperiencia: "Experience",
+    menuContacto: "Contact",
+    titulo: "Villa del Relax",
+    subtitulo: "A place where time stands still.",
+    refugio: "Your private retreat in Fuerteventura",
+    descripcion: "Private villa with heated pool for up to 10 guests in Corralejo, next to the Natural Park of the Dunes.",
+    whatsapp: "Contact via WhatsApp",
+    disponibilidad: "Check availability",
+    llamar: "Call"
+  },
+  de: {
+    menuVilla: "Die Villa",
+    menuExperiencia: "Erlebnis",
+    menuContacto: "Kontakt",
+    titulo: "Villa del Relax",
+    subtitulo: "Ein Ort, an dem die Zeit stillsteht.",
+    refugio: "Ihr privater Rückzugsort auf Fuerteventura",
+    descripcion: "Private Villa mit beheiztem Pool für bis zu 10 Gäste in Corralejo, nahe dem Naturpark der Dünen.",
+    whatsapp: "Per WhatsApp kontaktieren",
+    disponibilidad: "Verfügbarkeit prüfen",
+    llamar: "Anrufen"
+  },
+  it: {
+    menuVilla: "La Villa",
+    menuExperiencia: "Esperienza",
+    menuContacto: "Contatto",
+    titulo: "Villa del Relax",
+    subtitulo: "Un luogo dove il tempo si ferma.",
+    refugio: "Il tuo rifugio privato a Fuerteventura",
+    descripcion: "Villa privata con piscina riscaldata per un massimo di 10 ospiti a Corralejo, vicino al Parco Naturale delle Dune.",
+    whatsapp: "Contatta su WhatsApp",
+    disponibilidad: "Verifica disponibilità",
+    llamar: "Chiama"
+  }
+};
+
+function cambiarIdioma(idioma) {
+  document.querySelector('[data-key="menuVilla"]').textContent = traducciones[idioma].menuVilla;
+  document.querySelector('[data-key="menuExperiencia"]').textContent = traducciones[idioma].menuExperiencia;
+  document.querySelector('[data-key="menuContacto"]').textContent = traducciones[idioma].menuContacto;
+
+  document.querySelector('[data-key="titulo"]').textContent = traducciones[idioma].titulo;
+  document.querySelector('[data-key="subtitulo"]').textContent = traducciones[idioma].subtitulo;
+  document.querySelector('[data-key="refugio"]').textContent = traducciones[idioma].refugio;
+  document.querySelector('[data-key="descripcion"]').textContent = traducciones[idioma].descripcion;
+  document.querySelector('[data-key="whatsapp"]').textContent = traducciones[idioma].whatsapp;
+  document.querySelector('[data-key="disponibilidad"]').textContent = traducciones[idioma].disponibilidad;
+  document.querySelector('[data-key="llamar"]').textContent = traducciones[idioma].llamar;
 }
 </script>
 
