@@ -15,9 +15,9 @@
   --blanco:#ffffff;
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
@@ -32,35 +32,67 @@ header{
   width:100%;
   z-index:1000;
   background:rgba(248,246,242,.96);
-  display:flex;
-  justify-content:space-between;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
   align-items:center;
-  padding:20px 45px;
+  padding:18px 35px;
   box-shadow:0 2px 20px rgba(0,0,0,.06);
 }
 
 .logo{
   font-family:'Playfair Display',serif;
   font-size:28px;
-  color:var(--verde);
-  text-decoration:none;
+  justify-self:center;
 }
 
-nav a{
-  margin-left:26px;
-  text-decoration:none;
-  color:var(--verde);
-  font-size:14px;
-  font-weight:500;
+.menu-wrap{
+  position:relative;
+  justify-self:start;
 }
 
-nav select{
-  margin-left:26px;
-  border:1px solid rgba(18,52,59,.25);
+.menu-btn, select{
   background:transparent;
   color:var(--verde);
-  padding:8px 12px;
+  border:1px solid rgba(18,52,59,.25);
+  padding:9px 14px;
   font-weight:600;
+  cursor:pointer;
+}
+
+.idiomas{justify-self:end}
+
+.menu-list{
+  display:none;
+  position:absolute;
+  top:48px;
+  left:0;
+  min-width:220px;
+  background:var(--arena);
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+  padding:14px 0;
+}
+
+.menu-list a,
+.menu-list button{
+  display:block;
+  width:100%;
+  padding:14px 24px;
+  background:none;
+  border:none;
+  text-align:left;
+  color:var(--verde);
+  text-decoration:none;
+  font-family:'Poppins',sans-serif;
+  cursor:pointer;
+}
+
+.menu-list a:hover,
+.menu-list button:hover{
+  background:white;
+}
+
+.menu-wrap:hover .menu-list{
+  display:block;
 }
 
 .hero{
@@ -72,118 +104,142 @@ nav select{
   align-items:flex-end;
   justify-content:center;
   text-align:center;
-  padding:140px 25px 120px;
   color:white;
+  padding:120px 25px;
 }
 
 .hero h1{
   font-family:'Playfair Display',serif;
   font-size:78px;
   margin:0;
-  font-weight:600;
 }
 
 .linea{
-  width:85px;
+  width:80px;
   height:2px;
   background:var(--dorado);
   margin:24px auto;
 }
 
-.hero h2{
+.hero p{
   font-size:19px;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  font-weight:400;
-  margin:0 0 14px;
+  margin:0;
+  letter-spacing:1px;
 }
 
-.hero p{
+section{
+  padding:90px 28px;
+}
+
+h2{
+  font-family:'Playfair Display',serif;
+  font-size:48px;
+  margin:0 0 28px;
+  text-align:center;
+}
+
+.descripcion{
+  max-width:780px;
+  margin:auto;
   font-size:18px;
-  margin:0 0 32px;
+  line-height:1.9;
+  text-align:left;
+}
+
+.servicios{
+  background:white;
+}
+
+.lista-servicios{
+  max-width:980px;
+  margin:45px auto 0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 70px;
+}
+
+.lista-servicios div{
+  padding:15px 0;
+  border-bottom:1px solid rgba(18,52,59,.14);
+  font-size:16px;
+}
+
+.galeria{
+  text-align:center;
+}
+
+.carousel{
+  max-width:980px;
+  margin:40px auto 0;
+  overflow:hidden;
+}
+
+.carousel img{
+  width:100%;
+  height:560px;
+  object-fit:cover;
+  display:none;
+}
+
+.carousel img.active{
+  display:block;
+}
+
+.puntos{
+  margin-top:18px;
+}
+
+.puntos button{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  border:none;
+  background:rgba(18,52,59,.25);
+  margin:0 5px;
+  cursor:pointer;
+}
+
+.puntos button.active{
+  background:var(--verde);
+}
+
+.contacto{
+  background:var(--verde);
+  color:white;
+  text-align:center;
+}
+
+.contacto h2{
+  color:white;
 }
 
 .btn{
   display:inline-block;
-  padding:15px 38px;
+  padding:14px 28px;
   margin:8px;
   text-decoration:none;
   font-weight:600;
-  letter-spacing:1px;
-  border-radius:2px;
+  border:none;
+  cursor:pointer;
+  font-family:'Poppins',sans-serif;
 }
 
-.btn-principal{
+.btn-light{
   background:var(--arena);
   color:var(--verde);
 }
 
-.btn-secundario{
+.btn-outline{
+  background:transparent;
+  color:white;
   border:1px solid white;
-  color:white;
-}
-
-section{
-  padding:100px 28px;
-  text-align:center;
-}
-
-section h2{
-  font-family:'Playfair Display',serif;
-  font-size:50px;
-  margin:0 0 22px;
-}
-
-section p{
-  max-width:720px;
-  margin:auto;
-  font-size:18px;
-  line-height:1.8;
-}
-
-.detalles{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
-  max-width:1000px;
-  margin:55px auto 0;
-}
-
-.detalle{
-  background:white;
-  padding:36px 24px;
-  min-height:130px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:500;
-  box-shadow:0 12px 30px rgba(0,0,0,.05);
-}
-
-.bloque{
-  background:white;
-}
-
-.reserva{
-  background:var(--verde);
-  color:white;
-}
-
-.reserva .btn-principal{
-  background:var(--dorado);
-  color:white;
-}
-
-.reserva .btn-secundario{
-  border-color:white;
-  color:white;
 }
 
 footer{
   background:#0d292f;
   color:white;
   text-align:center;
-  padding:38px 20px;
+  padding:35px 20px;
   font-size:14px;
 }
 
@@ -198,68 +254,77 @@ footer a{
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.65);
-  z-index:2000;
+  z-index:3000;
   align-items:center;
   justify-content:center;
 }
 
-.popup-caja{
+.caja{
   background:white;
   color:var(--verde);
-  max-width:430px;
+  max-width:460px;
   margin:20px;
-  padding:36px;
+  padding:35px;
   text-align:center;
 }
 
-.popup-caja h2{
-  font-family:'Playfair Display',serif;
-  font-size:34px;
+.caja h2{
+  font-size:32px;
 }
 
-.popup-caja button{
-  padding:12px 22px;
-  margin:8px;
-  border:none;
-  cursor:pointer;
+.cookies-banner{
+  position:fixed;
+  left:20px;
+  right:20px;
+  bottom:20px;
+  max-width:900px;
+  margin:auto;
+  background:var(--arena);
+  color:var(--verde);
+  box-shadow:0 10px 35px rgba(0,0,0,.18);
+  padding:22px;
+  z-index:4000;
+  display:none;
 }
 
-.popup-caja .continuar{
-  background:var(--verde);
-  color:white;
+.cookies-banner p{
+  margin:8px 0 18px;
+  line-height:1.6;
 }
 
-@media(max-width:760px){
+.cookies-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.cookies-actions button{
+  margin:0;
+}
+
+@media(max-width:700px){
   header{
-    flex-direction:column;
-    gap:12px;
-    padding:16px;
+    padding:14px 16px;
   }
 
-  nav a{
-    margin-left:12px;
-    font-size:13px;
-  }
-
-  nav select{
-    margin-left:12px;
-  }
-
-  .hero{
-    padding:150px 22px 85px;
+  .logo{
+    font-size:23px;
   }
 
   .hero h1{
     font-size:48px;
   }
 
-  .hero h2{
-    font-size:14px;
-    letter-spacing:2px;
+  h2{
+    font-size:38px;
   }
 
-  section h2{
-    font-size:38px;
+  .lista-servicios{
+    grid-template-columns:1fr;
+  }
+
+  .carousel img{
+    height:340px;
   }
 }
 </style>
@@ -268,13 +333,21 @@ footer a{
 <body>
 
 <header>
-  <a href="#" class="logo">Villa del Relax</a>
+  <div class="menu-wrap">
+    <button class="menu-btn">☰</button>
 
-  <nav>
-    <a href="#villa">La Villa</a>
-    <a href="#experiencia">Experiencia</a>
-    <a href="#contacto">Contacto</a>
+    <div class="menu-list">
+      <a href="#villa">La Villa</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#galeria">Galería</a>
+      <button onclick="mostrarAviso()">Disponibilidad</button>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
 
+  <div class="logo">Villa del Relax</div>
+
+  <div class="idiomas">
     <select>
       <option>ES</option>
       <option>CA</option>
@@ -283,58 +356,71 @@ footer a{
       <option>FR</option>
       <option>IT</option>
     </select>
-  </nav>
+  </div>
 </header>
 
 <section class="hero">
   <div>
     <h1>Villa del Relax</h1>
     <div class="linea"></div>
-    <h2>Luxury Villa in Corralejo</h2>
-    <p>Private Pool · Sleeps 10 · Fuerteventura</p>
-
-    <a class="btn btn-principal" href="https://wa.me/34666157193">Reservar</a>
-    <a class="btn btn-secundario" href="#" onclick="mostrarAviso()">Disponibilidad</a>
+    <p>Luxury Villa · Corralejo · Fuerteventura</p>
   </div>
 </section>
 
 <section id="villa">
-  <h2>Menos ruido. Más calma.</h2>
-  <p>
-    Una villa privada pensada para desconectar, compartir y disfrutar
-    de Fuerteventura con tranquilidad, privacidad y confort.
+  <h2>Tu refugio privado</h2>
+  <p class="descripcion">
+    Villa del Relax es una vivienda vacacional pensada para disfrutar con calma.
+    Espacios amplios, jardín privado, piscina privada climatizada y todo lo necesario
+    para compartir unos días inolvidables en Corralejo, a solo 10 minutos de las Dunas.
   </p>
+</section>
 
-  <div class="detalles">
-    <div class="detalle">Piscina climatizada</div>
-    <div class="detalle">Hasta 10 huéspedes</div>
-    <div class="detalle">4 dormitorios</div>
-    <div class="detalle">3 baños</div>
+<section id="servicios" class="servicios">
+  <h2>Todo lo que necesitas</h2>
+
+  <div class="lista-servicios">
+    <div>Piscina privada climatizada</div>
+    <div>Jardín privado</div>
+    <div>4 habitaciones</div>
+    <div>Capacidad para 10 personas</div>
+    <div>3 baños, uno exterior junto a la piscina</div>
+    <div>Cocina totalmente equipada</div>
+    <div>WiFi</div>
+    <div>Barbacoa</div>
+    <div>Toallas y ropa de cama</div>
+    <div>Toallas de playa</div>
+    <div>Se admiten mascotas</div>
+    <div>Cerca de la playa</div>
+    <div>A 10 minutos de las Dunas</div>
+    <div>Zona tranquila</div>
   </div>
 </section>
 
-<section id="experiencia" class="bloque">
-  <h2>La experiencia</h2>
-  <p>
-    Desayunos al aire libre, baños en la piscina, tardes de barbacoa
-    y la libertad de descubrir Corralejo a tu ritmo.
-  </p>
+<section id="galeria" class="galeria">
+  <h2>Galería</h2>
 
-  <div class="detalles">
-    <div class="detalle">Jardín privado</div>
-    <div class="detalle">Barbacoa</div>
-    <div class="detalle">Ping-pong</div>
-    <div class="detalle">Mascotas bienvenidas</div>
+  <div class="carousel">
+    <img src="hero.jpg" class="active">
+    <img src="hero.jpg">
+    <img src="hero.jpg">
+  </div>
+
+  <div class="puntos">
+    <button class="active" onclick="irFoto(0)"></button>
+    <button onclick="irFoto(1)"></button>
+    <button onclick="irFoto(2)"></button>
   </div>
 </section>
 
-<section id="contacto" class="reserva">
-  <h2>Reserva tu estancia</h2>
-  <p>Contacta directamente con nosotros o consulta disponibilidad online.</p>
+<section id="contacto" class="contacto">
+  <h2>Contacto y reservas</h2>
+  <p>Elige cómo prefieres contactar con nosotros.</p>
 
-  <br>
-  <a class="btn btn-principal" href="https://wa.me/34666157193">WhatsApp</a>
-  <a class="btn btn-secundario" href="#" onclick="mostrarAviso()">Ver disponibilidad</a>
+  <a class="btn btn-light" href="tel:+34666157193">Llamar</a>
+  <a class="btn btn-light" href="https://wa.me/34666157193">WhatsApp</a>
+  <a class="btn btn-light" href="mailto:villadelrelaxftv@gmail.com">Email</a>
+  <button class="btn btn-outline" onclick="mostrarAviso()">Disponibilidad</button>
 </section>
 
 <footer>
@@ -347,11 +433,25 @@ footer a{
 </footer>
 
 <div id="popup" class="popup">
-  <div class="popup-caja">
+  <div class="caja">
     <h2>Consultar disponibilidad</h2>
     <p>Serás redirigido al calendario oficial de reservas gestionado por Holidu.</p>
-    <button onclick="cerrarPopup()">Cancelar</button>
-    <button class="continuar" onclick="window.location.href='https://villa-delrelax.vacation-bookings.com/'">Continuar</button>
+    <button class="btn" onclick="cerrarPopup()">Cancelar</button>
+    <button class="btn btn-light" onclick="window.location.href='https://villa-delrelax.vacation-bookings.com/'">Continuar</button>
+  </div>
+</div>
+
+<div id="cookiesBanner" class="cookies-banner">
+  <strong>Cookies</strong>
+  <p>
+    Utilizamos cookies técnicas necesarias para el funcionamiento de la web.
+    Con tu consentimiento también podremos utilizar cookies analíticas para mejorar la experiencia.
+  </p>
+
+  <div class="cookies-actions">
+    <button class="btn btn-light" onclick="rechazarCookies()">Rechazar</button>
+    <button class="btn btn-light" onclick="configurarCookies()">Configurar</button>
+    <button class="btn btn-light" onclick="aceptarCookies()">Aceptar todas</button>
   </div>
 </div>
 
@@ -362,6 +462,45 @@ function mostrarAviso(){
 
 function cerrarPopup(){
   document.getElementById("popup").style.display="none";
+}
+
+let fotoActual=0;
+const fotos=document.querySelectorAll(".carousel img");
+const puntos=document.querySelectorAll(".puntos button");
+
+function mostrarFoto(n){
+  fotos.forEach(f=>f.classList.remove("active"));
+  puntos.forEach(p=>p.classList.remove("active"));
+  fotos[n].classList.add("active");
+  puntos[n].classList.add("active");
+}
+
+function irFoto(n){
+  fotoActual=n;
+  mostrarFoto(fotoActual);
+}
+
+setInterval(function(){
+  fotoActual=(fotoActual+1)%fotos.length;
+  mostrarFoto(fotoActual);
+},5000);
+
+function aceptarCookies(){
+  localStorage.setItem("cookies","aceptadas");
+  document.getElementById("cookiesBanner").style.display="none";
+}
+
+function rechazarCookies(){
+  localStorage.setItem("cookies","rechazadas");
+  document.getElementById("cookiesBanner").style.display="none";
+}
+
+function configurarCookies(){
+  alert("Más adelante añadiremos un panel de preferencias.");
+}
+
+if(!localStorage.getItem("cookies")){
+  document.getElementById("cookiesBanner").style.display="block";
 }
 </script>
 
