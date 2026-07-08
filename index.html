@@ -2,367 +2,377 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>VILLA DEL RELAX</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Villa del Relax | Corralejo, Fuerteventura</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --turquesa: #0e7490;
-  --turquesa-claro: #dff7f6;
-  --arena: #f6efe6;
-  --azul-profundo: #12343b;
-  --blanco: #ffffff;
+:root{
+  --verde:#12343b;
+  --arena:#f8f6f2;
+  --dorado:#d6b46c;
+  --blanco:#ffffff;
 }
 
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: var(--arena);
-  color: var(--azul-profundo);
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:var(--arena);
+  color:var(--verde);
 }
 
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 18px 40px;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(248,246,242,.95);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  z-index: 1000;
-  transition: .4s;
-  box-shadow: 0 2px 15px rgba(0,0,0,.08);
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(248,246,242,.96);
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  padding:18px 35px;
+  box-shadow:0 2px 20px rgba(0,0,0,.06);
 }
 
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  letter-spacing: 4px;
-  color: #12343b;
-  font-weight: 600;
+.logo{
+  font-family:'Playfair Display',serif;
+  font-size:36px;
+  justify-self:center;
+  color:var(--verde);
 }
 
-nav a,
-.selector-idioma {
-  margin-left: 22px;
-  background: transparent;
-  border: 1px solid rgba(18,52,59,.25);
-  border-radius: 6px;
-  padding: 9px 14px;
-  color: #12343b;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: .3s;
-  backdrop-filter: blur(10px);
-  appearance: none;
-  -webkit-appearance: none;
+.menu-wrap{
+  position:relative;
+  justify-self:start;
 }
 
-.selector-idioma option {
-  color: #12343b;
+.menu-btn,
+.idioma-select{
+  background:transparent;
+  color:var(--verde);
+  border:1px solid rgba(18,52,59,.25);
+  padding:9px 14px;
+  font-weight:600;
+  cursor:pointer;
+  font-family:'Poppins',sans-serif;
 }
 
-nav a {
-  text-decoration: none;
-  border-bottom: none;
+.idiomas{
+  justify-self:end;
+  display:flex;
+  align-items:center;
+  gap:8px;
 }
 
-nav a:hover {
-  color: #b8954d;
-  text-decoration: none;
-  border-bottom: none;
+.globo{
+  width:18px;
+  height:18px;
+  stroke:var(--verde);
+  stroke-width:1.8;
+  fill:none;
 }
 
-.hero {
-  min-height: 100vh;
+.menu-list{
+  display:none;
+  position:absolute;
+  top:48px;
+  left:0;
+  min-width:230px;
+  background:var(--arena);
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+  padding:14px 0;
+}
+
+.menu-list.abierto{
+  display:block;
+}
+
+.menu-list a,
+.menu-list button{
+  display:block;
+  width:100%;
+  padding:14px 24px;
+  background:none;
+  border:none;
+  text-align:left;
+  color:var(--verde);
+  text-decoration:none;
+  font-family:'Poppins',sans-serif;
+  font-size:15px;
+  font-weight:400;
+  cursor:pointer;
+}
+
+.menu-list a:hover,
+.menu-list button:hover{
+  background:white;
+}
+
+.hero{
+  min-height:100vh;
   background:
-    linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.45)),
-    url("hero.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  text-align: center;
-  padding: 120px 25px 120px;
-}
-}
-
-.hero-content {
-  max-width: 820px;
-  animation: aparecer 1.4s ease;
-}
-
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 64px;
-  letter-spacing: 6px;
-  margin-bottom: 10px;
-  color: white;
-text-shadow: 0 5px 25px rgba(0,0,0,.45);
-}
-
-.hero h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  font-style: italic;
-  font-weight: 500;
-  margin-bottom: 12px;
-  color: white;
-  text-shadow: 0 3px 15px rgba(0,0,0,.45);
-}
-
-.hero h3 {
-  font-size: 20px;
-  font-weight: 400;
-  margin-bottom: 25px;
-  color: white;
-  text-shadow: 0 3px 15px rgba(0,0,0,.45);
-}
-
-.hero p {
-  font-size: 18px;
-  line-height: 1.8;
-  max-width: 700px;
-  margin: auto;
-  color: white;
-  text-shadow: 0 2px 10px rgba(0,0,0,.45);
-}
-
-.botones {
-  margin-top: 32px;
-}
-
-.boton {
-  display: inline-block;
-  margin: 9px;
-  padding: 15px 26px;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all .3s ease;
-}
-
-.principal {
-  background: var(--turquesa);
-  color: white;
-}
-
-.secundario {
-  border: 2px solid var(--turquesa);
-  color: var(--turquesa);
-  background: rgba(255,255,255,0.45);
-}
-
-.boton:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(14,116,144,0.25);
-}
-
-section {
-  padding: 80px 25px;
-  text-align: center;
-}
-
-section h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 42px;
-  color: var(--turquesa);
-}
-
-.subtitulo {
-  max-width: 650px;
-  margin: 0 auto 25px;
-  font-size: 17px;
-  line-height: 1.7;
-}
-
-.aviso {
-  background: white;
-  padding: 35px;
-  border-radius: 24px;
-  max-width: 760px;
-  margin: auto;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.06);
-}
-
-.aviso p {
-  line-height: 1.8;
-}
-
-.servicios-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 22px;
-  max-width: 1000px;
-  margin: 35px auto 0;
-}
-
-.servicio {
-  background: white;
-  padding: 28px 18px;
-  border-radius: 24px;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.06);
-}
-
-.servicio span {
-  display: block;
-  font-size: 30px;
-  margin-bottom: 12px;
-}
-
-.servicio h3 {
-  margin: 8px 0;
-  color: var(--turquesa);
-}
-
-.servicio p {
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.dia {
-  background: white;
-}
-
-.dia p {
-  max-width: 780px;
-  margin: auto;
-  font-size: 20px;
-  line-height: 1.8;
-}
-
-.whatsapp-flotante {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  background: #25D366;
-  color: white;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 58px;
-  font-size: 28px;
-  text-decoration: none;
-  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
-  z-index: 200;
-}
-
-.popup {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.6);
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.popup-caja {
-  background: white;
-  padding: 35px;
-  max-width: 430px;
-  border-radius: 24px;
-  text-align: center;
-}
-
-.popup-caja h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 34px;
-  color: var(--turquesa);
-}
-
-.popup-caja button {
-  margin: 8px;
-  padding: 12px 22px;
-  border-radius: 25px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.cancelar {
-  background: #ddd;
-}
-
-.continuar {
-  background: var(--turquesa);
-  color: white;
-}
-
-footer {
-  background: var(--azul-profundo);
-  color: white;
-  text-align: center;
-  padding: 35px 20px;
-  font-size: 14px;
-}
-
-footer a {
-  color: white;
-  margin: 0 8px;
-  text-decoration: none;
-}
-
-@keyframes aparecer {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 700px) {
-  header {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .hero h1 {
-    font-size: 44px;
-  }
-
-  .hero h2 {
-    font-size: 25px;
-  }
-
-  .hero h3 {
-    font-size: 17px;
-  }
-
-  nav a {
-    font-size: 12px;
-  }
-}.linea-dorada{
-    width:90px;
-    height:3px;
-    background:#d9b56d;
-    margin:22px auto;
-    border-radius:30px;
+    linear-gradient(rgba(0,0,0,.38),rgba(0,0,0,.38)),
+    url("hero.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  padding:120px 25px;
 }
 
 .hero h1{
-    font-size:72px;
-    letter-spacing:3px;
+  font-family:'Playfair Display',serif;
+  font-size:78px;
+  margin:0;
 }
 
-.hero h2{
-    letter-spacing:2px;
+.linea{
+  width:80px;
+  height:2px;
+  background:var(--dorado);
+  margin:24px auto;
 }
 
-.hero h3{
-    letter-spacing:1px;
+.hero p{
+  font-size:19px;
+  margin:0;
+  letter-spacing:1px;
+}
+
+section{
+  padding:90px 28px;
+}
+
+h2{
+  font-family:'Playfair Display',serif;
+  font-size:48px;
+  margin:0 0 28px;
+  text-align:center;
+}
+
+.descripcion{
+  max-width:780px;
+  margin:auto;
+  font-size:18px;
+  line-height:1.9;
+  text-align:left;
+}
+
+.servicios{
+  background:white;
+}
+
+.lista-servicios{
+  max-width:980px;
+  margin:45px auto 0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 70px;
+}
+
+.lista-servicios div{
+  padding:15px 0;
+  border-bottom:1px solid rgba(18,52,59,.14);
+  font-size:16px;
+}
+
+.galeria{
+  text-align:center;
+}
+
+.carousel{
+  max-width:980px;
+  margin:40px auto 0;
+  overflow:hidden;
+}
+
+.carousel img{
+  width:100%;
+  height:560px;
+  object-fit:cover;
+  display:none;
+}
+
+.carousel img.active{
+  display:block;
+}
+
+.puntos{
+  margin-top:18px;
+}
+
+.puntos button{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  border:none;
+  background:rgba(18,52,59,.25);
+  margin:0 5px;
+  cursor:pointer;
+}
+
+.puntos button.active{
+  background:var(--verde);
+}
+
+.ubicacion{
+  background:white;
+}
+
+.mapa-placeholder{
+  max-width:980px;
+  height:360px;
+  margin:40px auto 0;
+  border:1px solid rgba(18,52,59,.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:rgba(18,52,59,.65);
+  background:#f8f6f2;
+}
+
+.contacto{
+  background:var(--verde);
+  color:white;
+  text-align:center;
+}
+
+.contacto h2{
+  color:white;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:170px;
+  min-height:52px;
+  padding:14px 28px;
+  margin:8px;
+  text-decoration:none;
+  font-weight:600;
+  border:none;
+  cursor:pointer;
+  font-family:'Poppins',sans-serif;
+  font-size:15px;
+}
+
+.btn-light{
+  background:var(--arena);
+  color:var(--verde);
+}
+
+.btn-outline{
+  background:transparent;
+  color:white;
+  border:1px solid white;
+}
+
+footer{
+  background:#0d292f;
+  color:white;
+  text-align:center;
+  padding:35px 20px;
+  font-size:14px;
+}
+
+footer a{
+  color:white;
+  text-decoration:none;
+  margin:0 8px;
+}
+
+.popup{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:3000;
+  align-items:center;
+  justify-content:center;
+}
+
+.caja{
+  background:white;
+  color:var(--verde);
+  max-width:460px;
+  margin:20px;
+  padding:35px;
+  text-align:center;
+}
+
+.caja h2{
+  font-size:32px;
+}
+
+.cookies-banner{
+  position:fixed;
+  left:20px;
+  right:20px;
+  bottom:20px;
+  max-width:900px;
+  margin:auto;
+  background:var(--arena);
+  color:var(--verde);
+  box-shadow:0 10px 35px rgba(0,0,0,.18);
+  padding:22px;
+  z-index:4000;
+  display:none;
+}
+
+.cookies-banner p{
+  margin:8px 0 18px;
+  line-height:1.6;
+}
+
+.cookies-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.cookies-actions button{
+  margin:0;
+}
+
+@media(max-width:700px){
+  header{
+    padding:14px 16px;
+  }
+
+  .logo{
+    font-size:26px;
+  }
+
+  .hero h1{
+    font-size:48px;
+  }
+
+  h2{
+    font-size:38px;
+  }
+
+  .lista-servicios{
+    grid-template-columns:1fr;
+  }
+
+  .carousel img{
+    height:340px;
+  }
+
+  .mapa-placeholder{
+    height:260px;
+  }
+
+  .btn{
+    width:100%;
+    max-width:280px;
+  }
 }
 </style>
 </head>
@@ -370,276 +380,208 @@ footer a {
 <body>
 
 <header>
-  <div class="logo">VILLA DEL RELAX</div>
+  <div class="menu-wrap">
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-  <nav>
-  <a href="#villa" data-key="menuVilla">La Villa</a>
-  <a href="#experiencia" data-key="menuExperiencia">Experiencia</a>
-  <a href="#contacto" data-key="menuContacto">Contacto</a>
+    <div id="menuList" class="menu-list">
+      <a href="#villa" onclick="cerrarMenu()">La Villa</a>
+      <a href="#servicios" onclick="cerrarMenu()">Servicios</a>
+      <a href="#galeria" onclick="cerrarMenu()">Galería</a>
+      <a href="#ubicacion" onclick="cerrarMenu()">Ubicación</a>
+      <button onclick="mostrarAviso(); cerrarMenu();">Disponibilidad</button>
+      <a href="#contacto" onclick="cerrarMenu()">Contacto</a>
+    </div>
+  </div>
 
-  <select id="languageSelector" class="selector-idioma" onchange="cambiarIdioma(this.value)">
-   <option value="es">ES</option>
-<option value="ca">CA</option>
-<option value="en">EN</option>
-<option value="de">DE</option>
-<option value="fr">FR</option>
-<option value="it">IT</option>
-  </select>
-</nav>
+  <div class="logo">Villa del Relax</div>
+
+  <div class="idiomas">
+    <svg class="globo" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"></circle>
+      <path d="M3 12h18"></path>
+      <path d="M12 3a14 14 0 0 1 0 18"></path>
+      <path d="M12 3a14 14 0 0 0 0 18"></path>
+    </svg>
+
+    <select class="idioma-select">
+      <option>ES</option>
+      <option>CA</option>
+      <option>EN</option>
+      <option>DE</option>
+      <option>FR</option>
+      <option>IT</option>
+    </select>
+  </div>
 </header>
 
-<div class="hero">
-  <div class="hero-content">
-
-    <h1 data-key="titulo">Villa del Relax</h1>
-
-    <div class="linea-dorada"></div>
-
-    <h2 data-key="subtitulo">Luxury Villa in Corralejo</h2>
-
-    <h3 data-key="refugio">Tu refugio privado en Fuerteventura</h3>
-
-    <p data-key="descripcion">
-      Villa privada con piscina climatizada para hasta 10 huéspedes en Corralejo,
-      junto al Parque Natural de las Dunas.
-    </p>
-
-    <div class="botones">
-      <a class="boton principal" href="https://wa.me/34666157193">
-        💬 <span data-key="whatsapp">Contactar por WhatsApp</span>
-      </a>
-
-      <a class="boton secundario" href="#" onclick="mostrarAviso()">
-        📅 <span data-key="disponibilidad">Ver disponibilidad</span>
-      </a>
-
-      <a class="boton secundario" href="tel:+34666157193">
-        📞 <span data-key="llamar">Llamar</span>
-      </a>
-    </div>
-
-  </div>
-</div>
-
-<section id="villa" class="villa">
-    <div class="contenedor">
-        <span class="subtitulo">UN REFUGIO EXCLUSIVO</span>
-
-        <h2>Descubre Villa del Relax</h2>
-
-        <p>
-            Diseñada para quienes buscan tranquilidad, privacidad y confort.
-            Disfruta de una villa independiente con piscina climatizada,
-            amplias terrazas y todos los detalles necesarios para unas
-            vacaciones inolvidables en Corralejo.
-        </p>
-
-        <div class="botones-villa">
-            <a href="#contacto" class="btn">Reservar ahora</a>
-            <a href="#galeria" class="btn-outline">Ver galería</a>
-        </div>
-    </div>
-</section>
-
-<section id="porque">
-  <h2>¿Por qué elegir VILLA DEL RELAX?</h2>
-  <p class="subtitulo">Detalles pensados para que tu estancia sea cómoda, tranquila y especial.</p>
-
-  <div class="servicios-grid">
-    <div class="servicio">
-      <span>🏊</span>
-      <h3>Piscina climatizada</h3>
-      <p>Disfruta de un baño en cualquier época del año.</p>
-    </div>
-
-    <div class="servicio">
-      <span>👨‍👩‍👧‍👦</span>
-      <h3>Hasta 10 huéspedes</h3>
-      <p>Ideal para familias y grupos de amigos.</p>
-    </div>
-
-    <div class="servicio">
-      <span>📍</span>
-      <h3>Corralejo</h3>
-      <p>Junto al Parque Natural de las Dunas, playas, restaurantes y supermercados.</p>
-    </div>
-
-    <div class="servicio">
-      <span>💙</span>
-      <h3>Atención directa</h3>
-      <p>Contacta directamente con nosotros para resolver dudas o preparar tu estancia.</p>
-    </div>
+<section class="hero">
+  <div>
+    <h1>Villa del Relax</h1>
+    <div class="linea"></div>
+    <p>Luxury Villa · Corralejo · Fuerteventura</p>
   </div>
 </section>
 
-<section id="experiencia">
-  <h2>Vive la experiencia</h2>
-  <p class="subtitulo">Todo lo que necesitas para una estancia perfecta.</p>
-
-  <div class="servicios-grid">
-    <div class="servicio"><span>🛏️</span><h3>4 dormitorios</h3><p>Espacios amplios y confortables para descansar.</p></div>
-    <div class="servicio"><span>🚿</span><h3>3 baños</h3><p>Uno de ellos exterior, junto a la piscina.</p></div>
-    <div class="servicio"><span>🌴</span><h3>Jardín privado</h3><p>Un espacio exterior para relajarte y disfrutar del sol.</p></div>
-    <div class="servicio"><span>🍽️</span><h3>Barbacoa</h3><p>Perfecta para compartir comidas al aire libre.</p></div>
-    <div class="servicio"><span>🏓</span><h3>Ping-pong</h3><p>Diversión para todas las edades.</p></div>
-    <div class="servicio"><span>🐾</span><h3>Mascotas bienvenidas</h3><p>Porque las vacaciones también son para ellos.</p></div>
-  </div>
-</section>
-
-<section id="dia" class="dia">
-  <h2>Un día en Villa del Relax</h2>
-  <p>
-    Despierta con la calma de Corralejo, desayuna al aire libre,
-    disfruta de un baño en la piscina climatizada y termina el día
-    compartiendo una barbacoa bajo el cielo de Fuerteventura.
+<section id="villa">
+  <h2>Tu refugio privado</h2>
+  <p class="descripcion">
+    Villa del Relax es una vivienda vacacional pensada para disfrutar con calma.
+    Espacios amplios, jardín privado, piscina privada climatizada y todo lo necesario
+    para compartir unos días inolvidables en Corralejo, a solo 10 minutos de las Dunas.
   </p>
 </section>
 
-<section id="contacto">
-  <h2>Reserva directa</h2>
-  <p>Consulta disponibilidad o contacta con nosotros directamente.</p>
-  <a class="boton principal" href="https://wa.me/34666157193">💬 WhatsApp</a>
-  <a class="boton secundario" href="#" onclick="mostrarAviso()">📅 Ver disponibilidad</a>
+<section id="servicios" class="servicios">
+  <h2>Todo lo que necesitas</h2>
+
+  <div class="lista-servicios">
+    <div>Piscina privada climatizada</div>
+    <div>Jardín privado</div>
+    <div>4 habitaciones</div>
+    <div>Capacidad para 10 personas</div>
+    <div>3 baños, uno exterior junto a la piscina</div>
+    <div>Cocina totalmente equipada</div>
+    <div>WiFi</div>
+    <div>Barbacoa</div>
+    <div>Toallas y ropa de cama</div>
+    <div>Toallas de playa</div>
+    <div>Se admiten mascotas</div>
+    <div>Cerca de la playa</div>
+    <div>A 10 minutos de las Dunas</div>
+    <div>Zona tranquila</div>
+  </div>
+</section>
+
+<section id="galeria" class="galeria">
+  <h2>Galería</h2>
+
+  <div class="carousel">
+    <img src="hero.jpg" class="active">
+    <img src="hero.jpg">
+    <img src="hero.jpg">
+  </div>
+
+  <div class="puntos">
+    <button class="active" onclick="irFoto(0)"></button>
+    <button onclick="irFoto(1)"></button>
+    <button onclick="irFoto(2)"></button>
+  </div>
+</section>
+
+<section id="ubicacion" class="ubicacion">
+  <h2>Ubicación</h2>
+  <p class="descripcion">
+    Villa del Relax se encuentra en una zona tranquila de Corralejo, Fuerteventura,
+    a pocos minutos de playas, restaurantes, supermercados y del Parque Natural de las Dunas.
+  </p>
+
+  <div class="mapa-placeholder">
+    Aquí añadiremos el mapa de ubicación
+  </div>
+</section>
+
+<section id="contacto" class="contacto">
+  <h2>Reserva</h2>
+
+  <a class="btn btn-light" href="tel:+34666157193">Llamar</a>
+  <a class="btn btn-light" href="https://wa.me/34666157193">WhatsApp</a>
+  <a class="btn btn-light" href="mailto:villadelrelaxftv@gmail.com">Email</a>
+  <button class="btn btn-outline" onclick="mostrarAviso()">Disponibilidad</button>
 </section>
 
 <footer>
-
-<p>VILLA DEL RELAX · Corralejo · Fuerteventura</p>
-
-<p>
-
-<a href="privacidad.html">Política de privacidad</a> ·
-
-<a href="cookies.html">Política de Cookies</a> ·
-
-<a href="aviso-legal.html">Aviso Legal</a>
-
-</p>
-
-<p style="margin-top:20px;font-size:13px;opacity:.8;">
-
-© 2026 Villa del Relax · Todos los derechos reservados.
-
-</p>
-
+  <p>Villa del Relax · Corralejo · Fuerteventura</p>
+  <p>
+    <a href="privacidad.html">Privacidad</a> ·
+    <a href="cookies.html">Cookies</a> ·
+    <a href="aviso-legal.html">Aviso legal</a>
+  </p>
 </footer>
 
-<a class="whatsapp-flotante" href="https://wa.me/34666157193">💬</a>
-
 <div id="popup" class="popup">
-  <div class="popup-caja">
+  <div class="caja">
     <h2>Consultar disponibilidad</h2>
+    <p>Serás redirigido al calendario oficial de reservas gestionado por Holidu.</p>
+    <button class="btn" onclick="cerrarPopup()">Cancelar</button>
+    <button class="btn btn-light" onclick="window.location.href='https://villa-delrelax.vacation-bookings.com/'">Continuar</button>
+  </div>
+</div>
 
-    <p>
-      Estás a punto de acceder al calendario oficial de reservas de
-      <b>Villa del Relax</b>.
-    </p>
+<div id="cookiesBanner" class="cookies-banner">
+  <strong>Cookies</strong>
+  <p>
+    Utilizamos cookies técnicas necesarias para el funcionamiento de la web.
+    Con tu consentimiento también podremos utilizar cookies analíticas para mejorar la experiencia.
+  </p>
 
-    <p>
-      La disponibilidad y las reservas online se gestionan de forma segura mediante nuestro colaborador <b>Holidu</b>.
-    </p>
-
-    <button class="cancelar" onclick="cerrarPopup()">Cancelar</button>
-    <button class="continuar" onclick="window.location.href='https://villa-delrelax.vacation-bookings.com/'">Continuar</button>
+  <div class="cookies-actions">
+    <button class="btn btn-light" onclick="rechazarCookies()">Rechazar</button>
+    <button class="btn btn-light" onclick="configurarCookies()">Configurar</button>
+    <button class="btn btn-light" onclick="aceptarCookies()">Aceptar todas</button>
   </div>
 </div>
 
 <script>
-function mostrarAviso() {
-  document.getElementById("popup").style.display = "flex";
+function toggleMenu(){
+  document.getElementById("menuList").classList.toggle("abierto");
 }
 
-function cerrarPopup() {
-  document.getElementById("popup").style.display = "none";
+function cerrarMenu(){
+  document.getElementById("menuList").classList.remove("abierto");
 }
 
-const traducciones = {
-  es: {
-    menuVilla: "La Villa",
-    menuExperiencia: "Experiencia",
-    menuContacto: "Contacto",
-    titulo: "Villa del Relax",
-    subtitulo: "Un lugar donde el tiempo se detiene.",
-    refugio: "Tu refugio privado en Fuerteventura",
-    descripcion: "Villa privada con piscina climatizada para hasta 10 huéspedes en Corralejo, junto al Parque Natural de las Dunas.",
-    whatsapp: "Contactar por WhatsApp",
-    disponibilidad: "Ver disponibilidad",
-    llamar: "Llamar"
-  },
-  ca: {
-  menuVilla: "La Vila",
-  menuExperiencia: "Experiència",
-  menuContacto: "Contacte",
-  titulo: "Villa del Relax",
-  subtitulo: "Luxury Villa a Corralejo",
-  refugio: "El teu refugi privat a Fuerteventura",
-  descripcion: "Vila privada amb piscina climatitzada per a fins a 10 hostes a Corralejo, al costat del Parc Natural de les Dunes.",
-  whatsapp: "Contactar per WhatsApp",
-  disponibilidad: "Veure disponibilitat",
-  llamar: "Trucar"
-},
-  en: {
-    menuVilla: "The Villa",
-    menuExperiencia: "Experience",
-    menuContacto: "Contact",
-    titulo: "Villa del Relax",
-    subtitulo: "A place where time stands still.",
-    refugio: "Your private retreat in Fuerteventura",
-    descripcion: "Private villa with heated pool for up to 10 guests in Corralejo, next to the Natural Park of the Dunes.",
-    whatsapp: "Contact via WhatsApp",
-    disponibilidad: "Check availability",
-    llamar: "Call"
-  },
-  de: {
-    menuVilla: "Die Villa",
-    menuExperiencia: "Erlebnis",
-    menuContacto: "Kontakt",
-    titulo: "Villa del Relax",
-    subtitulo: "Ein Ort, an dem die Zeit stillsteht.",
-    refugio: "Ihr privater Rückzugsort auf Fuerteventura",
-    descripcion: "Private Villa mit beheiztem Pool für bis zu 10 Gäste in Corralejo, nahe dem Naturpark der Dünen.",
-    whatsapp: "Per WhatsApp kontaktieren",
-    disponibilidad: "Verfügbarkeit prüfen",
-    llamar: "Anrufen"
-  },
-  fr: {
-  menuVilla: "La Villa",
-  menuExperiencia: "Expérience",
-  menuContacto: "Contact",
-  titulo: "Villa del Relax",
-  subtitulo: "Luxury Villa à Corralejo",
-  refugio: "Votre refuge privé à Fuerteventura",
-  descripcion: "Villa privée avec piscine chauffée pouvant accueillir jusqu'à 10 personnes à Corralejo, près du Parc Naturel des Dunes.",
-  whatsapp: "Contacter via WhatsApp",
-  disponibilidad: "Voir les disponibilités",
-  llamar: "Appeler"
-},
-  it: {
-    menuVilla: "La Villa",
-    menuExperiencia: "Esperienza",
-    menuContacto: "Contatto",
-    titulo: "Villa del Relax",
-    subtitulo: "Un luogo dove il tempo si ferma.",
-    refugio: "Il tuo rifugio privato a Fuerteventura",
-    descripcion: "Villa privata con piscina riscaldata per un massimo di 10 ospiti a Corralejo, vicino al Parco Naturale delle Dune.",
-    whatsapp: "Contatta su WhatsApp",
-    disponibilidad: "Verifica disponibilità",
-    llamar: "Chiama"
+document.addEventListener("click", function(e){
+  const menu = document.querySelector(".menu-wrap");
+  if(!menu.contains(e.target)){
+    cerrarMenu();
   }
-};
+});
 
-function cambiarIdioma(idioma) {
-  document.querySelector('[data-key="menuVilla"]').textContent = traducciones[idioma].menuVilla;
-  document.querySelector('[data-key="menuExperiencia"]').textContent = traducciones[idioma].menuExperiencia;
-  document.querySelector('[data-key="menuContacto"]').textContent = traducciones[idioma].menuContacto;
+function mostrarAviso(){
+  document.getElementById("popup").style.display="flex";
+}
 
-  document.querySelector('[data-key="titulo"]').textContent = traducciones[idioma].titulo;
-  document.querySelector('[data-key="subtitulo"]').textContent = traducciones[idioma].subtitulo;
-  document.querySelector('[data-key="refugio"]').textContent = traducciones[idioma].refugio;
-  document.querySelector('[data-key="descripcion"]').textContent = traducciones[idioma].descripcion;
-  document.querySelector('[data-key="whatsapp"]').textContent = traducciones[idioma].whatsapp;
-  document.querySelector('[data-key="disponibilidad"]').textContent = traducciones[idioma].disponibilidad;
-  document.querySelector('[data-key="llamar"]').textContent = traducciones[idioma].llamar;
+function cerrarPopup(){
+  document.getElementById("popup").style.display="none";
+}
+
+let fotoActual=0;
+const fotos=document.querySelectorAll(".carousel img");
+const puntos=document.querySelectorAll(".puntos button");
+
+function mostrarFoto(n){
+  fotos.forEach(f=>f.classList.remove("active"));
+  puntos.forEach(p=>p.classList.remove("active"));
+  fotos[n].classList.add("active");
+  puntos[n].classList.add("active");
+}
+
+function irFoto(n){
+  fotoActual=n;
+  mostrarFoto(fotoActual);
+}
+
+setInterval(function(){
+  fotoActual=(fotoActual+1)%fotos.length;
+  mostrarFoto(fotoActual);
+},5000);
+
+function aceptarCookies(){
+  localStorage.setItem("cookies","aceptadas");
+  document.getElementById("cookiesBanner").style.display="none";
+}
+
+function rechazarCookies(){
+  localStorage.setItem("cookies","rechazadas");
+  document.getElementById("cookiesBanner").style.display="none";
+}
+
+function configurarCookies(){
+  alert("Más adelante añadiremos un panel de preferencias.");
+}
+
+if(!localStorage.getItem("cookies")){
+  document.getElementById("cookiesBanner").style.display="block";
 }
 </script>
 
