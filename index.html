@@ -1,171 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Villa del Relax | Corralejo, Fuerteventura</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Villa del Relax | Corralejo, Fuerteventura</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --verde:#073f34;
-  --verde-oscuro:#062d26;
-  --arena:#f7f1e7;
-  --arena2:#efe4d3;
-  --dorado:#c9973f;
-  --texto:#153c38;
-  --blanco:#fffaf3;
-}
-
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Poppins,sans-serif;background:var(--arena);color:var(--texto)}
-
-header{
-  position:fixed;top:0;width:100%;height:92px;z-index:1000;
-  background:rgba(255,250,243,.97);
-  display:grid;grid-template-columns:auto 1fr auto;
-  align-items:center;gap:35px;padding:0 42px;
-  box-shadow:0 2px 18px rgba(0,0,0,.08)
-}
-
-.logo img{height:74px;display:block}
-
-nav{display:flex;justify-content:center;align-items:center;gap:30px}
-
-nav a,nav button{
-  background:none;border:none;color:#162f2c;text-decoration:none;
-  font-family:Marcellus,serif;font-size:16px;letter-spacing:.6px;cursor:pointer
-}
-
-.idiomas{display:flex;align-items:center;gap:9px}
-.globo{width:23px;height:23px;stroke:var(--verde);fill:none;stroke-width:1.7}
-select{border:none;background:transparent;font-family:Poppins,sans-serif;font-size:14px;color:var(--verde);cursor:pointer}
-
-.hero{
-  min-height:540px;margin-top:92px;
-  background:linear-gradient(90deg,rgba(0,0,0,.64),rgba(0,0,0,.18)),url("hero.jpg") center/cover no-repeat;
-  display:flex;align-items:center;padding:85px 7%;color:white;
-  animation:heroMove 20s ease-in-out infinite alternate
-}
-
-@keyframes heroMove{from{background-size:100%}to{background-size:106%}}
-
-.hero-content{max-width:650px}
-.hero h1{font-family:Marcellus,serif;font-size:76px;line-height:1;letter-spacing:6px;margin:0 0 14px;font-weight:400}
-.hero h2{font-family:Marcellus,serif;letter-spacing:5px;font-size:25px;margin:0 0 22px;font-weight:400}
-.linea{width:60px;height:2px;background:var(--dorado);margin:18px 0}
-.hero p{font-size:20px;line-height:1.8;max-width:430px}
-
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  min-width:190px;min-height:54px;padding:14px 30px;margin:10px 12px 0 0;
-  text-decoration:none;border:none;cursor:pointer;
-  font-family:Marcellus,serif;letter-spacing:1px;font-size:16px
-}
-.btn-gold{background:var(--dorado);color:white}
-.btn-outline{background:transparent;color:white;border:1px solid white}
-
-section{padding:70px 7%}
-.intro{background:var(--arena)}
-.section-label{color:var(--dorado);font-family:Marcellus,serif;letter-spacing:3px;font-size:15px;text-transform:uppercase;text-align:center}
-h3{font-family:Marcellus,serif;font-size:42px;font-weight:400;text-align:center;margin:10px 0 20px}
-.intro p{max-width:850px;margin:auto;font-size:18px;line-height:1.9;text-align:center}
-
-.features{
-  background:var(--blanco);display:grid;grid-template-columns:repeat(5,1fr);
-  border-top:1px solid rgba(0,0,0,.08);border-bottom:1px solid rgba(0,0,0,.08);padding:0
-}
-.feature{padding:28px 20px;text-align:center;border-right:1px solid rgba(0,0,0,.12);font-size:15px}
-.feature strong{display:block;font-family:Marcellus,serif;font-size:18px;margin-bottom:4px}
-
-.services{background:var(--arena2)}
-.services-grid{max-width:1000px;margin:35px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:0 70px}
-.services-grid div{padding:14px 0;border-bottom:1px solid rgba(18,52,59,.18)}
-
-.split{display:grid;grid-template-columns:1fr 1fr;background:var(--arena)}
-.reviews,.location{padding:58px 6%}
-.reviews{border-right:1px solid rgba(0,0,0,.12)}
-.sub{text-align:center;margin:0 0 30px}
-.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.card{background:var(--blanco);padding:24px 20px;min-height:170px;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.08);border-radius:8px}
-.stars{color:var(--dorado);font-size:20px;letter-spacing:2px;margin-bottom:12px}
-.card p{font-size:14px;line-height:1.6}
-.source{margin-top:14px;font-weight:600;color:#0a4d8f}
-
-.map iframe{width:100%;height:300px;border:0;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.1)}
-.location p{line-height:1.7;max-width:520px;margin:0 auto 25px;text-align:center}
-
-.green-bar{
-  background:linear-gradient(90deg,var(--verde-oscuro),var(--verde));
-  color:white;display:grid;grid-template-columns:1.2fr repeat(4,1fr);
-  gap:28px;padding:46px 7%;align-items:center
-}
-
-.green-title{font-family:Marcellus,serif;font-size:31px;letter-spacing:5px}
-.contact-item{border-left:1px solid rgba(255,255,255,.35);padding-left:28px}
-.contact-icon{width:46px;height:46px;border-radius:50%;background:var(--dorado);display:flex;align-items:center;justify-content:center;margin-bottom:12px;color:white}
-.contact-icon svg{width:24px;height:24px;fill:white}
-.contact-item a,.contact-item button{color:white;background:none;border:none;text-decoration:none;font-family:Poppins,sans-serif;padding:0;cursor:pointer;font-size:15px}
-.contact-item strong{display:block;font-family:Marcellus,serif;letter-spacing:2px;font-size:17px;margin-bottom:5px}
-
-footer{background:var(--blanco);padding:28px 7%;display:flex;justify-content:space-between;gap:20px;font-size:14px}
-footer a{color:var(--texto);text-decoration:none;margin-left:28px}
-
-.popup{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:3000;align-items:center;justify-content:center}
-.caja{background:var(--blanco);color:var(--texto);max-width:460px;margin:20px;padding:38px;text-align:center}
-.cookies{display:none;position:fixed;left:20px;right:20px;bottom:20px;max-width:900px;margin:auto;background:var(--blanco);color:var(--texto);padding:22px;z-index:4000;box-shadow:0 10px 35px rgba(0,0,0,.18)}
-.cookies button{margin:6px}
-
-@media(max-width:950px){
-  header{grid-template-columns:auto 1fr auto;padding:0 18px}
-  nav{display:none}
-  .logo img{height:58px}
-  .hero h1{font-size:54px}
-  .features{grid-template-columns:1fr 1fr}
-  .split{grid-template-columns:1fr}
-  .cards{grid-template-columns:1fr}
-  .green-bar{grid-template-columns:1fr}
-  .contact-item{border-left:none;padding-left:0}
-  footer{flex-direction:column;text-align:center}
-  .services-grid{grid-template-columns:1fr}
-}
-
-@media(max-width:600px){
-  header{height:82px}
-  .hero{margin-top:82px;padding:70px 28px}
-  .hero h1{font-size:44px;letter-spacing:3px}
-  .hero h2{font-size:18px}
-  .features{grid-template-columns:1fr}
-}
-</style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-  <a href="#" class="logo">
-    <img src="logo.png" alt="Villa del Relax Fuerteventura">
-  </a>
+<header class="header">
+  <div class="logo-box">
+    <img src="logo.png" alt="Villa del Relax" class="logo">
+  </div>
 
-  <nav>
-    <a href="#villa" data-key="menuVilla">LA VILLA</a>
-    <a href="#servicios" data-key="menuServicios">SERVICIOS</a>
-    <a href="#resenas" data-key="menuResenas">RESEÑAS</a>
-    <a href="#ubicacion" data-key="menuUbicacion">UBICACIÓN</a>
-    <button onclick="mostrarAviso()" data-key="menuDisponibilidad">DISPONIBILIDAD</button>
-    <a href="#contacto" data-key="menuContacto">CONTACTO</a>
+  <nav class="nav">
+    <a href="#villa" data-i18n="menuVilla">LA VILLA</a>
+    <a href="#galeria" data-i18n="menuGaleria">GALERÍA</a>
+    <a href="#servicios" data-i18n="menuServicios">SERVICIOS</a>
+    <a href="#resenas" data-i18n="menuResenas">RESEÑAS</a>
+    <a href="#ubicacion" data-i18n="menuUbicacion">UBICACIÓN</a>
+    <button type="button" onclick="openAvailability()" data-i18n="menuDisponibilidad">DISPONIBILIDAD</button>
+    <a href="#contacto" data-i18n="menuContacto">CONTACTO</a>
   </nav>
 
-  <div class="idiomas">
-    <svg class="globo" viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="9"></circle>
-      <path d="M3 12h18"></path>
-      <path d="M12 3a14 14 0 0 1 0 18"></path>
-      <path d="M12 3a14 14 0 0 0 0 18"></path>
-    </svg>
-    <select onchange="cambiarIdioma(this.value)">
+  <div class="language-box">
+    <span class="globe">◎</span>
+    <select id="languageSelect" onchange="changeLanguage(this.value)">
       <option value="es">ES</option>
       <option value="ca">CA</option>
       <option value="en">EN</option>
@@ -176,128 +42,159 @@ footer a{color:var(--texto);text-decoration:none;margin-left:28px}
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero-content">
-    <h1>VILLA DEL RELAX</h1>
-    <h2>CORRALEJO · FUERTEVENTURA</h2>
-    <div class="linea"></div>
-    <p data-key="heroText">Tu refugio de calma en Fuerteventura.</p>
-    <a href="#villa" class="btn btn-gold" data-key="discover">DESCUBRIR LA VILLA</a>
-    <button class="btn btn-outline" onclick="mostrarAviso()" data-key="availability">DISPONIBILIDAD</button>
-  </div>
-</section>
+<main>
 
-<section class="intro" id="villa">
-  <div class="section-label" data-key="villaLabel">La Villa</div>
-  <h3 data-key="villaTitle">Un espacio para desconectar</h3>
-  <p data-key="villaText">
-    Villa del Relax es una vivienda vacacional amplia, luminosa y pensada para disfrutar sin prisas.
-    Cuenta con jardín privado, piscina privada climatizada, zonas exteriores para compartir y todo lo necesario para una estancia cómoda en Corralejo.
-  </p>
-</section>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>VILLA DEL RELAX</h1>
+      <h2>CORRALEJO · FUERTEVENTURA</h2>
+      <div class="gold-line"></div>
+      <p data-i18n="heroText">Tu refugio de calma en Fuerteventura.</p>
 
-<section class="features">
-  <div class="feature"><strong data-key="f1a">Piscina privada</strong><span data-key="f1b">climatizada</span></div>
-  <div class="feature"><strong data-key="f2a">Hasta 10</strong><span data-key="f2b">personas</span></div>
-  <div class="feature"><strong data-key="f3a">4 habitaciones</strong><span data-key="f3b">amplias</span></div>
-  <div class="feature"><strong data-key="f4a">3 baños</strong><span data-key="f4b">uno exterior</span></div>
-  <div class="feature"><strong data-key="f5a">Cerca de la playa</strong><span data-key="f5b">y las Dunas</span></div>
-</section>
-
-<section class="services" id="servicios">
-  <div class="section-label" data-key="servicesLabel">Servicios</div>
-  <h3 data-key="servicesTitle">Todo lo que necesitas</h3>
-
-  <div class="services-grid">
-    <div data-key="s1">Piscina privada climatizada</div>
-    <div data-key="s2">Jardín privado</div>
-    <div data-key="s3">4 habitaciones</div>
-    <div data-key="s4">Capacidad para 10 personas</div>
-    <div data-key="s5">3 baños, uno exterior junto a la piscina</div>
-    <div data-key="s6">Cocina totalmente equipada</div>
-    <div data-key="s7">WiFi</div>
-    <div data-key="s8">Barbacoa</div>
-    <div data-key="s9">Toallas y ropa de cama</div>
-    <div data-key="s10">Toallas de playa</div>
-    <div data-key="s11">Se admiten mascotas</div>
-    <div data-key="s12">Cerca de la playa</div>
-    <div data-key="s13">A 10 minutos de las Dunas</div>
-    <div data-key="s14">Zona tranquila</div>
-    <div data-key="s15">Lavadora</div>
-    <div data-key="s16">Smart TV</div>
-  </div>
-</section>
-
-<section class="split">
-  <div class="reviews" id="resenas">
-    <div class="section-label" data-key="reviewsLabel">Reseñas</div>
-    <h3 data-key="reviewsTitle">Lo que dicen nuestros huéspedes</h3>
-    <p class="sub" data-key="reviewsSub">Aquí añadiremos tus reseñas reales.</p>
-
-    <div class="cards">
-      <div class="card"><div class="stars">★★★★★</div><p>“Pendiente de reseña real.”</p><div class="source">Booking.com</div></div>
-      <div class="card"><div class="stars">★★★★★</div><p>“Pendiente de reseña real.”</p><div class="source">Google</div></div>
-      <div class="card"><div class="stars">★★★★★</div><p>“Pendiente de reseña real.”</p><div class="source">VRBO</div></div>
-      <div class="card"><div class="stars">★★★★★</div><p>“Pendiente de reseña real.”</p><div class="source">Holidu</div></div>
+      <a href="#villa" class="btn btn-gold" data-i18n="discover">DESCUBRIR LA VILLA</a>
+      <button class="btn btn-outline" onclick="openAvailability()" data-i18n="availability">DISPONIBILIDAD</button>
     </div>
-  </div>
+  </section>
 
-  <div class="location" id="ubicacion">
-    <div class="section-label" data-key="locationLabel">Ubicación</div>
-    <h3 data-key="locationTitle">Corralejo, Fuerteventura</h3>
-    <p data-key="locationText">Villa del Relax se encuentra en una zona tranquila de Corralejo, a pocos minutos de playas, restaurantes, supermercados y del Parque Natural de las Dunas.</p>
-
-    <div class="map">
-      <iframe src="https://www.google.com/maps?q=Corralejo%20Fuerteventura%20Villa%20del%20Relax&output=embed" loading="lazy"></iframe>
-    </div>
-
-    <p style="margin-top:24px">
-      <a class="btn btn-gold" target="_blank" href="https://maps.app.goo.gl/pQ2RsCDxVPcY7Pj37" data-key="openMaps">ABRIR EN GOOGLE MAPS</a>
+  <section id="villa" class="section intro-section">
+    <p class="section-label" data-i18n="villaLabel">La Villa</p>
+    <h3 data-i18n="villaTitle">Un espacio para desconectar</h3>
+    <p class="intro-text" data-i18n="villaText">
+      Villa del Relax es una vivienda vacacional amplia, luminosa y pensada para disfrutar sin prisas.
+      Cuenta con jardín privado, piscina privada climatizada, zonas exteriores para compartir y todo lo necesario para una estancia cómoda en Corralejo.
     </p>
-  </div>
-</section>
+  </section>
 
-<section class="green-bar" id="contacto">
-  <div>
-    <div class="green-title" data-key="bookingTitle">RESERVA TU ESTANCIA</div>
-    <div class="linea"></div>
-    <p data-key="bookingText">Contacta con nosotros directamente.</p>
-  </div>
+  <section id="galeria" class="section gallery-section">
+    <p class="section-label" data-i18n="galleryLabel">Galería</p>
+    <h3 data-i18n="galleryTitle">Descubre la villa</h3>
 
-  <div class="contact-item">
-    <div class="contact-icon">
-      <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.7 3.9 5.2 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.3 1 .3 2.1.5 3.2.5.7 0 1.2.5 1.2 1.2v3.5c0 .7-.5 1.2-1.2 1.2C10.5 21.3 2.7 13.5 2.7 4.2 2.7 3.5 3.2 3 3.9 3h3.5c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.5 3.2.1.4 0 .9-.3 1.2l-2.2 2.2z"/></svg>
+    <div class="gallery-viewer">
+      <button class="gallery-arrow left" onclick="prevPhoto()">‹</button>
+      <img id="mainGalleryImage" src="hero.jpg" alt="Villa del Relax">
+      <button class="gallery-arrow right" onclick="nextPhoto()">›</button>
     </div>
-    <strong data-key="call">LLAMAR</strong>
-    <a href="tel:+34666157193">+34 666 157 193</a>
-  </div>
 
-  <div class="contact-item">
-    <div class="contact-icon">
-      <svg viewBox="0 0 24 24"><path d="M12 2.2A9.7 9.7 0 0 0 3.7 17l-1.2 4.3 4.4-1.1A9.7 9.7 0 1 0 12 2.2zm0 17.6c-1.6 0-3.1-.5-4.4-1.3l-.3-.2-2.6.7.7-2.5-.2-.3A7.9 7.9 0 1 1 12 19.8zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.2.2-.3.2-.6.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2.1-.4 0-.5 0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1-.1-.1-.2-.2-.5-.3z"/></svg>
+    <div class="gallery-thumbs" id="galleryThumbs"></div>
+  </section>
+
+  <section class="quick-features">
+    <div><strong data-i18n="f1a">Piscina privada</strong><span data-i18n="f1b">climatizada</span></div>
+    <div><strong data-i18n="f2a">Hasta 10</strong><span data-i18n="f2b">personas</span></div>
+    <div><strong data-i18n="f3a">4 habitaciones</strong><span data-i18n="f3b">amplias</span></div>
+    <div><strong data-i18n="f4a">3 baños</strong><span data-i18n="f4b">uno exterior</span></div>
+    <div><strong data-i18n="f5a">Cerca de la playa</strong><span data-i18n="f5b">y las Dunas</span></div>
+  </section>
+
+  <section id="servicios" class="section services-section">
+    <p class="section-label" data-i18n="servicesLabel">Servicios</p>
+    <h3 data-i18n="servicesTitle">Todo lo que necesitas</h3>
+
+    <div class="services-grid">
+      <div data-i18n="s1">Piscina privada climatizada</div>
+      <div data-i18n="s2">Jardín privado</div>
+      <div data-i18n="s3">4 habitaciones</div>
+      <div data-i18n="s4">Capacidad para 10 personas</div>
+      <div data-i18n="s5">3 baños, uno exterior junto a la piscina</div>
+      <div data-i18n="s6">Cocina totalmente equipada</div>
+      <div data-i18n="s7">WiFi</div>
+      <div data-i18n="s8">Barbacoa</div>
+      <div data-i18n="s9">Toallas y ropa de cama</div>
+      <div data-i18n="s10">Toallas de playa</div>
+      <div data-i18n="s11">Se admiten mascotas</div>
+      <div data-i18n="s12">Cerca de la playa</div>
+      <div data-i18n="s13">A 10 minutos de las Dunas</div>
+      <div data-i18n="s14">Zona tranquila</div>
+      <div data-i18n="s15">Lavadora</div>
+      <div data-i18n="s16">Smart TV</div>
+      <div data-i18n="s17">Ping-pong</div>
+      <div data-i18n="s18">Zona exterior de descanso</div>
     </div>
-    <strong>WHATSAPP</strong>
-    <a href="https://wa.me/34666157193">+34 666 157 193</a>
-  </div>
+  </section>
 
-  <div class="contact-item">
-    <div class="contact-icon">
-      <svg viewBox="0 0 24 24"><path d="M3 5h18v14H3V5zm9 7.2L5.4 7H18.6L12 12.2zm0 2.4L5 9.1V17h14V9.1l-7 5.5z"/></svg>
+  <section class="split-section">
+    <div id="resenas" class="reviews-section">
+      <p class="section-label" data-i18n="reviewsLabel">Reseñas</p>
+      <h3 data-i18n="reviewsTitle">Lo que dicen nuestros huéspedes</h3>
+      <p class="subtext" data-i18n="reviewsSub">Aquí añadiremos tus reseñas reales.</p>
+
+      <div class="review-cards">
+        <article class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“Pendiente de reseña real.”</p>
+          <strong>Booking.com</strong>
+        </article>
+
+        <article class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“Pendiente de reseña real.”</p>
+          <strong>Google</strong>
+        </article>
+
+        <article class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“Pendiente de reseña real.”</p>
+          <strong>VRBO</strong>
+        </article>
+
+        <article class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“Pendiente de reseña real.”</p>
+          <strong>Holidu</strong>
+        </article>
+      </div>
     </div>
-    <strong>EMAIL</strong>
-    <a href="mailto:villadelrelaxftv@gmail.com">villadelrelaxftv@gmail.com</a>
-  </div>
 
-  <div class="contact-item">
-    <div class="contact-icon">
-      <svg viewBox="0 0 24 24"><path d="M7 2v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-2V2h-2v2H9V2H7zm12 18H5V10h14v10z"/></svg>
+    <div id="ubicacion" class="location-section">
+      <p class="section-label" data-i18n="locationLabel">Ubicación</p>
+      <h3 data-i18n="locationTitle">Corralejo, Fuerteventura</h3>
+      <p data-i18n="locationText">
+        Villa del Relax se encuentra en una zona tranquila de Corralejo, a pocos minutos de playas, restaurantes, supermercados y del Parque Natural de las Dunas.
+      </p>
+
+      <div class="map-box">
+        <iframe src="https://www.google.com/maps?q=Corralejo%20Fuerteventura%20Villa%20del%20Relax&output=embed" loading="lazy"></iframe>
+      </div>
+
+      <a class="btn btn-gold map-btn" target="_blank" href="https://maps.app.goo.gl/pQ2RsCDxVPcY7Pj37" data-i18n="openMaps">ABRIR EN GOOGLE MAPS</a>
     </div>
-    <strong data-key="availability2">DISPONIBILIDAD</strong>
-    <button onclick="mostrarAviso()" data-key="calendar">Consultar calendario</button>
-  </div>
-</section>
+  </section>
 
-<footer>
+  <section id="contacto" class="contact-section">
+    <div class="contact-title">
+      <h3 data-i18n="bookingTitle">RESERVA TU ESTANCIA</h3>
+      <div class="gold-line"></div>
+      <p data-i18n="bookingText">Contacta con nosotros directamente.</p>
+    </div>
+
+    <div class="contact-item">
+      <a class="contact-icon" href="tel:+34666157193" aria-label="Llamar">☎</a>
+      <strong data-i18n="call">LLAMAR</strong>
+      <span>+34 666 157 193</span>
+    </div>
+
+    <div class="contact-item">
+      <a class="contact-icon" href="https://wa.me/34666157193" aria-label="WhatsApp">◉</a>
+      <strong>WHATSAPP</strong>
+      <span>+34 666 157 193</span>
+    </div>
+
+    <div class="contact-item">
+      <a class="contact-icon" href="mailto:villadelrelaxftv@gmail.com" aria-label="Email">✉</a>
+      <strong>EMAIL</strong>
+      <span>villadelrelaxftv@gmail.com</span>
+    </div>
+
+    <div class="contact-item">
+      <button class="contact-icon" onclick="openAvailability()" aria-label="Disponibilidad">□</button>
+      <strong data-i18n="availability2">DISPONIBILIDAD</strong>
+      <span data-i18n="calendar">Consultar calendario</span>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
   <div>© 2025 Villa del Relax · Corralejo · Fuerteventura</div>
   <div>
     <a href="aviso-legal.html">Aviso legal</a>
@@ -306,70 +203,25 @@ footer a{color:var(--texto);text-decoration:none;margin-left:28px}
   </div>
 </footer>
 
-<div id="popup" class="popup">
-  <div class="caja">
-    <h3 data-key="popupTitle">Consultar disponibilidad</h3>
-    <p data-key="popupText">Serás redirigido al calendario oficial de reservas gestionado por Holidu.</p>
-    <button class="btn" onclick="cerrarPopup()" data-key="cancel">Cancelar</button>
-    <button class="btn btn-gold" onclick="window.location.href='https://villa-delrelax.vacation-bookings.com/'" data-key="continue">Continuar</button>
+<div id="availabilityPopup" class="popup">
+  <div class="popup-box">
+    <h3 data-i18n="popupTitle">Consultar disponibilidad</h3>
+    <p data-i18n="popupText">Serás redirigido al calendario oficial de reservas gestionado por Holidu.</p>
+    <button class="btn" onclick="closeAvailability()" data-i18n="cancel">Cancelar</button>
+    <button class="btn btn-gold" onclick="goToHolidu()" data-i18n="continue">Continuar</button>
   </div>
 </div>
 
-<div id="cookies" class="cookies">
-  <strong data-key="cookiesTitle">Cookies</strong>
-  <p data-key="cookiesText">Utilizamos cookies técnicas necesarias y, con tu consentimiento, cookies analíticas para mejorar la experiencia.</p>
-  <button class="btn" onclick="rechazarCookies()" data-key="reject">Rechazar</button>
-  <button class="btn" onclick="configurarCookies()" data-key="settings">Configurar</button>
-  <button class="btn btn-gold" onclick="aceptarCookies()" data-key="accept">Aceptar todas</button>
+<div id="cookiesBanner" class="cookies">
+  <strong data-i18n="cookiesTitle">Cookies</strong>
+  <p data-i18n="cookiesText">Utilizamos cookies técnicas necesarias y, con tu consentimiento, cookies analíticas para mejorar la experiencia.</p>
+  <button class="btn" onclick="rejectCookies()" data-i18n="reject">Rechazar</button>
+  <button class="btn" onclick="configureCookies()" data-i18n="settings">Configurar</button>
+  <button class="btn btn-gold" onclick="acceptCookies()" data-i18n="accept">Aceptar todas</button>
 </div>
 
-<script>
-function mostrarAviso(){document.getElementById("popup").style.display="flex"}
-function cerrarPopup(){document.getElementById("popup").style.display="none"}
-function aceptarCookies(){localStorage.setItem("cookies","aceptadas");document.getElementById("cookies").style.display="none"}
-function rechazarCookies(){localStorage.setItem("cookies","rechazadas");document.getElementById("cookies").style.display="none"}
-function configurarCookies(){alert("Más adelante añadiremos un panel de preferencias.")}
-if(!localStorage.getItem("cookies")){document.getElementById("cookies").style.display="block"}
-
-const textos={
-es:{
-menuVilla:"LA VILLA",menuServicios:"SERVICIOS",menuResenas:"RESEÑAS",menuUbicacion:"UBICACIÓN",menuDisponibilidad:"DISPONIBILIDAD",menuContacto:"CONTACTO",
-heroText:"Tu refugio de calma en Fuerteventura.",discover:"DESCUBRIR LA VILLA",availability:"DISPONIBILIDAD",
-villaLabel:"La Villa",villaTitle:"Un espacio para desconectar",villaText:"Villa del Relax es una vivienda vacacional amplia, luminosa y pensada para disfrutar sin prisas. Cuenta con jardín privado, piscina privada climatizada, zonas exteriores para compartir y todo lo necesario para una estancia cómoda en Corralejo.",
-f1a:"Piscina privada",f1b:"climatizada",f2a:"Hasta 10",f2b:"personas",f3a:"4 habitaciones",f3b:"amplias",f4a:"3 baños",f4b:"uno exterior",f5a:"Cerca de la playa",f5b:"y las Dunas",
-servicesLabel:"Servicios",servicesTitle:"Todo lo que necesitas",reviewsLabel:"Reseñas",reviewsTitle:"Lo que dicen nuestros huéspedes",reviewsSub:"Aquí añadiremos tus reseñas reales.",
-locationLabel:"Ubicación",locationTitle:"Corralejo, Fuerteventura",locationText:"Villa del Relax se encuentra en una zona tranquila de Corralejo, a pocos minutos de playas, restaurantes, supermercados y del Parque Natural de las Dunas.",openMaps:"ABRIR EN GOOGLE MAPS",
-bookingTitle:"RESERVA TU ESTANCIA",bookingText:"Contacta con nosotros directamente.",call:"LLAMAR",availability2:"DISPONIBILIDAD",calendar:"Consultar calendario",
-popupTitle:"Consultar disponibilidad",popupText:"Serás redirigido al calendario oficial de reservas gestionado por Holidu.",cancel:"Cancelar",continue:"Continuar",
-cookiesTitle:"Cookies",cookiesText:"Utilizamos cookies técnicas necesarias y, con tu consentimiento, cookies analíticas para mejorar la experiencia.",reject:"Rechazar",settings:"Configurar",accept:"Aceptar todas",
-s1:"Piscina privada climatizada",s2:"Jardín privado",s3:"4 habitaciones",s4:"Capacidad para 10 personas",s5:"3 baños, uno exterior junto a la piscina",s6:"Cocina totalmente equipada",s7:"WiFi",s8:"Barbacoa",s9:"Toallas y ropa de cama",s10:"Toallas de playa",s11:"Se admiten mascotas",s12:"Cerca de la playa",s13:"A 10 minutos de las Dunas",s14:"Zona tranquila",s15:"Lavadora",s16:"Smart TV"
-},
-en:{
-menuVilla:"THE VILLA",menuServicios:"AMENITIES",menuResenas:"REVIEWS",menuUbicacion:"LOCATION",menuDisponibilidad:"AVAILABILITY",menuContacto:"CONTACT",
-heroText:"Your calm retreat in Fuerteventura.",discover:"DISCOVER THE VILLA",availability:"AVAILABILITY",
-villaLabel:"The Villa",villaTitle:"A place to disconnect",villaText:"Villa del Relax is a spacious and bright holiday home designed to be enjoyed slowly. It offers a private garden, private heated pool, outdoor areas to share and everything you need for a comfortable stay in Corralejo.",
-f1a:"Private pool",f1b:"heated",f2a:"Sleeps 10",f2b:"guests",f3a:"4 bedrooms",f3b:"spacious",f4a:"3 bathrooms",f4b:"one outside",f5a:"Close to the beach",f5b:"and the Dunes",
-servicesLabel:"Amenities",servicesTitle:"Everything you need",reviewsLabel:"Reviews",reviewsTitle:"What our guests say",reviewsSub:"Real guest reviews will be added here.",
-locationLabel:"Location",locationTitle:"Corralejo, Fuerteventura",locationText:"Villa del Relax is located in a quiet area of Corralejo, just minutes from beaches, restaurants, supermarkets and the Natural Park of the Dunes.",openMaps:"OPEN IN GOOGLE MAPS",
-bookingTitle:"BOOK YOUR STAY",bookingText:"Contact us directly.",call:"CALL",availability2:"AVAILABILITY",calendar:"Check calendar",
-popupTitle:"Check availability",popupText:"You will be redirected to the official booking calendar managed by Holidu.",cancel:"Cancel",continue:"Continue",
-cookiesTitle:"Cookies",cookiesText:"We use technical cookies and, with your consent, analytics cookies to improve the experience.",reject:"Reject",settings:"Settings",accept:"Accept all",
-s1:"Private heated pool",s2:"Private garden",s3:"4 bedrooms",s4:"Sleeps 10 guests",s5:"3 bathrooms, one outside by the pool",s6:"Fully equipped kitchen",s7:"WiFi",s8:"Barbecue",s9:"Towels and bed linen",s10:"Beach towels",s11:"Pets welcome",s12:"Close to the beach",s13:"10 minutes from the Dunes",s14:"Quiet area",s15:"Washing machine",s16:"Smart TV"
-}
-};
-
-textos.ca={...textos.es,menuVilla:"LA VILA",menuServicios:"SERVEIS",menuResenas:"RESSENYES",menuUbicacion:"UBICACIÓ",menuDisponibilidad:"DISPONIBILITAT",menuContacto:"CONTACTE"};
-textos.de={...textos.en,menuVilla:"DIE VILLA",menuServicios:"AUSSTATTUNG",menuResenas:"BEWERTUNGEN",menuUbicacion:"LAGE",menuDisponibilidad:"VERFÜGBARKEIT",menuContacto:"KONTAKT"};
-textos.fr={...textos.en,menuVilla:"LA VILLA",menuServicios:"SERVICES",menuResenas:"AVIS",menuUbicacion:"EMPLACEMENT",menuDisponibilidad:"DISPONIBILITÉS",menuContacto:"CONTACT"};
-textos.it={...textos.en,menuVilla:"LA VILLA",menuServicios:"SERVIZI",menuResenas:"RECENSIONI",menuUbicacion:"POSIZIONE",menuDisponibilidad:"DISPONIBILITÀ",menuContacto:"CONTATTO"};
-
-function cambiarIdioma(idioma){
-  document.querySelectorAll("[data-key]").forEach(el=>{
-    const key=el.getAttribute("data-key");
-    if(textos[idioma] && textos[idioma][key]) el.textContent=textos[idioma][key];
-  });
-}
-</script>
+<script src="translations.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
