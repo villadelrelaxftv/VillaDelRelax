@@ -5,76 +5,430 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Villa del Relax | Corralejo, Fuerteventura</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-:root{--verde:#12343b;--arena:#f8f6f2;--dorado:#d6b46c}
+:root{
+  --verde:#073f34;
+  --verde-oscuro:#062d26;
+  --arena:#f7f1e7;
+  --arena2:#efe4d3;
+  --dorado:#c9973f;
+  --texto:#153c38;
+  --blanco:#fffaf3;
+}
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:Poppins,sans-serif;background:var(--arena);color:var(--verde)}
 
-header{position:fixed;top:0;width:100%;z-index:1000;background:rgba(248,246,242,.96);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:18px 35px;box-shadow:0 2px 20px rgba(0,0,0,.06)}
-.logo{font-family:'Cormorant Garamond',serif;font-size:44px;letter-spacing:2px;justify-self:center;color:var(--verde)}
-.menu-wrap{position:relative;justify-self:start}
-.menu-btn,.idioma-select{background:transparent;color:var(--verde);border:1px solid rgba(18,52,59,.25);padding:9px 14px;font-weight:600;cursor:pointer;font-family:Poppins,sans-serif}
-.idiomas{justify-self:end;display:flex;align-items:center;gap:8px}
-.globo{width:18px;height:18px;stroke:var(--verde);stroke-width:1.8;fill:none}
-.menu-list{display:none;position:absolute;top:48px;left:0;min-width:230px;background:var(--arena);box-shadow:0 12px 30px rgba(0,0,0,.12);padding:14px 0}
-.menu-list.abierto{display:block}
-.menu-list a,.menu-list button{display:block;width:100%;padding:14px 24px;background:none;border:none;text-align:left;color:var(--verde);text-decoration:none;font-family:Poppins,sans-serif;font-size:15px;font-weight:400;cursor:pointer}
-.menu-list a:hover,.menu-list button:hover{background:white;color:var(--verde)}
+body{
+  margin:0;
+  font-family:Poppins,sans-serif;
+  background:var(--arena);
+  color:var(--texto);
+}
 
-.hero{min-height:100vh;background:linear-gradient(rgba(0,0,0,.38),rgba(0,0,0,.38)),url("hero.jpg") center/cover no-repeat;display:flex;align-items:flex-end;justify-content:center;text-align:center;color:white;padding:120px 25px}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:82px;margin:0}
-.linea{width:80px;height:2px;background:var(--dorado);margin:24px auto}
-.hero p{font-size:19px;margin:0;letter-spacing:1px}
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(255,250,243,.96);
+  height:92px;
+  display:grid;
+  grid-template-columns:60px auto 1fr auto;
+  align-items:center;
+  gap:26px;
+  padding:0 42px;
+  box-shadow:0 2px 18px rgba(0,0,0,.08);
+}
 
-section{padding:90px 28px}
-h2{font-family:'Cormorant Garamond',serif;font-size:52px;margin:0 0 28px;text-align:center}
-.descripcion{max-width:780px;margin:auto;font-size:18px;line-height:1.9;text-align:left}
+.menu-btn{
+  background:none;
+  border:none;
+  font-size:30px;
+  color:var(--verde);
+  cursor:pointer;
+}
 
-.servicios{background:white}
-.lista-servicios{max-width:980px;margin:45px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:0 70px}
-.lista-servicios div{padding:15px 0;border-bottom:1px solid rgba(18,52,59,.14);font-size:16px}
+.logo img{
+  height:70px;
+  display:block;
+}
 
-.galeria{text-align:center}
-.carousel{max-width:980px;margin:40px auto 0;overflow:hidden}
-.carousel img{width:100%;height:560px;object-fit:cover;display:none}
-.carousel img.active{display:block}
-.puntos{margin-top:18px}
-.puntos button{width:10px;height:10px;border-radius:50%;border:none;background:rgba(18,52,59,.25);margin:0 5px;cursor:pointer}
-.puntos button.active{background:var(--verde)}
+nav{
+  display:flex;
+  gap:34px;
+  justify-content:center;
+  align-items:center;
+}
 
-.ubicacion{background:white}
-.mapa-placeholder{max-width:980px;height:360px;margin:40px auto 25px;border:1px solid rgba(18,52,59,.15);display:flex;align-items:center;justify-content:center;color:rgba(18,52,59,.65);background:#f8f6f2}
+nav a,
+nav button{
+  background:none;
+  border:none;
+  color:#162f2c;
+  text-decoration:none;
+  font-family:Marcellus,serif;
+  font-size:16px;
+  letter-spacing:.5px;
+  cursor:pointer;
+}
 
-.contacto{background:var(--verde);color:white;text-align:center}
-.contacto h2{color:white}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-width:170px;min-height:52px;padding:14px 28px;margin:8px;text-decoration:none;font-weight:600;border:none;cursor:pointer;font-family:Poppins,sans-serif;font-size:15px}
-.btn-light{background:var(--arena);color:var(--verde)}
-.btn-dark{background:var(--verde);color:white}
+.idiomas{
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
 
-footer{background:#0d292f;color:white;text-align:center;padding:35px 20px;font-size:14px}
-footer a{color:white;text-decoration:none;margin:0 8px}
+.globo{
+  width:23px;
+  height:23px;
+  stroke:var(--verde);
+  fill:none;
+  stroke-width:1.7;
+}
 
-.popup{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:3000;align-items:center;justify-content:center}
-.caja{background:white;color:var(--verde);max-width:460px;margin:20px;padding:35px;text-align:center}
-.caja h2{font-size:32px}
+select{
+  border:none;
+  background:transparent;
+  font-family:Poppins,sans-serif;
+  font-size:14px;
+  color:var(--verde);
+  cursor:pointer;
+}
 
-.cookies-banner{position:fixed;left:20px;right:20px;bottom:20px;max-width:900px;margin:auto;background:var(--arena);color:var(--verde);box-shadow:0 10px 35px rgba(0,0,0,.18);padding:22px;z-index:4000;display:none}
-.cookies-banner p{margin:8px 0 18px;line-height:1.6}
-.cookies-actions{display:flex;flex-wrap:wrap;gap:10px}
-.cookies-actions button{margin:0}
+.mobile-menu{
+  display:none;
+  position:fixed;
+  top:92px;
+  left:0;
+  width:260px;
+  background:var(--blanco);
+  z-index:999;
+  box-shadow:0 14px 35px rgba(0,0,0,.15);
+  padding:18px 0;
+}
 
-@media(max-width:700px){
-header{padding:14px 16px}
-.logo{font-size:30px}
-.hero h1{font-size:50px}
-h2{font-size:40px}
-.lista-servicios{grid-template-columns:1fr}
-.carousel img{height:340px}
-.mapa-placeholder{height:260px}
-.btn{width:100%;max-width:280px}
+.mobile-menu.abierto{display:block}
+
+.mobile-menu a,
+.mobile-menu button{
+  display:block;
+  width:100%;
+  padding:15px 28px;
+  background:none;
+  border:none;
+  text-align:left;
+  color:var(--verde);
+  text-decoration:none;
+  font-family:Marcellus,serif;
+  font-size:18px;
+  cursor:pointer;
+}
+
+.hero{
+  min-height:520px;
+  margin-top:92px;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.62),rgba(0,0,0,.18)),
+    url("hero.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  padding:80px 7%;
+  color:white;
+  animation:heroMove 18s ease-in-out infinite alternate;
+}
+
+@keyframes heroMove{
+  from{background-size:100%}
+  to{background-size:106%}
+}
+
+.hero-content{
+  max-width:620px;
+}
+
+.hero h1{
+  font-family:Marcellus,serif;
+  font-size:76px;
+  line-height:1;
+  letter-spacing:6px;
+  margin:0 0 16px;
+  font-weight:400;
+}
+
+.hero h2{
+  font-family:Marcellus,serif;
+  letter-spacing:5px;
+  font-size:25px;
+  margin:0 0 26px;
+  font-weight:400;
+}
+
+.linea{
+  width:60px;
+  height:2px;
+  background:var(--dorado);
+  margin:18px 0;
+}
+
+.hero p{
+  font-size:19px;
+  line-height:1.8;
+  max-width:430px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:190px;
+  min-height:54px;
+  padding:14px 30px;
+  margin:10px 12px 0 0;
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  font-family:Marcellus,serif;
+  letter-spacing:1px;
+  font-size:16px;
+}
+
+.btn-gold{
+  background:var(--dorado);
+  color:white;
+}
+
+.btn-outline{
+  background:transparent;
+  color:white;
+  border:1px solid white;
+}
+
+.features{
+  background:var(--blanco);
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+
+.feature{
+  padding:28px 20px;
+  text-align:center;
+  border-right:1px solid rgba(0,0,0,.12);
+  font-size:15px;
+}
+
+.feature strong{
+  display:block;
+  font-family:Marcellus,serif;
+  font-size:18px;
+  margin-bottom:4px;
+}
+
+.split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  background:var(--arena);
+}
+
+.reviews,
+.location{
+  padding:58px 6%;
+}
+
+.reviews{
+  border-right:1px solid rgba(0,0,0,.12);
+}
+
+.section-label{
+  color:var(--dorado);
+  font-family:Marcellus,serif;
+  letter-spacing:3px;
+  font-size:15px;
+  text-transform:uppercase;
+  text-align:center;
+}
+
+h3{
+  font-family:Marcellus,serif;
+  font-size:38px;
+  font-weight:400;
+  text-align:center;
+  margin:10px 0 8px;
+}
+
+.sub{
+  text-align:center;
+  margin:0 0 30px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.card{
+  background:var(--blanco);
+  padding:24px 20px;
+  min-height:170px;
+  text-align:center;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+  border-radius:8px;
+}
+
+.stars{
+  color:var(--dorado);
+  font-size:20px;
+  letter-spacing:2px;
+  margin-bottom:12px;
+}
+
+.card p{
+  font-size:14px;
+  line-height:1.6;
+}
+
+.source{
+  margin-top:14px;
+  font-weight:600;
+  color:#0a4d8f;
+}
+
+.map iframe{
+  width:100%;
+  height:300px;
+  border:0;
+  border-radius:8px;
+  box-shadow:0 6px 18px rgba(0,0,0,.1);
+}
+
+.location p{
+  line-height:1.7;
+  max-width:520px;
+  margin:0 auto 25px;
+  text-align:center;
+}
+
+.green-bar{
+  background:linear-gradient(90deg,var(--verde-oscuro),var(--verde));
+  color:white;
+  display:grid;
+  grid-template-columns:1.2fr repeat(4,1fr);
+  gap:28px;
+  padding:46px 7%;
+  align-items:center;
+}
+
+.green-title{
+  font-family:Marcellus,serif;
+  font-size:31px;
+  letter-spacing:5px;
+}
+
+.contact-item{
+  border-left:1px solid rgba(255,255,255,.35);
+  padding-left:28px;
+}
+
+.contact-item a,
+.contact-item button{
+  color:white;
+  background:none;
+  border:none;
+  text-decoration:none;
+  font-family:Poppins,sans-serif;
+  padding:0;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.contact-item strong{
+  display:block;
+  font-family:Marcellus,serif;
+  letter-spacing:2px;
+  font-size:17px;
+  margin-bottom:5px;
+}
+
+footer{
+  background:var(--blanco);
+  padding:28px 7%;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  font-size:14px;
+}
+
+footer a{
+  color:var(--texto);
+  text-decoration:none;
+  margin-left:28px;
+}
+
+.popup{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:3000;
+  align-items:center;
+  justify-content:center;
+}
+
+.caja{
+  background:var(--blanco);
+  color:var(--texto);
+  max-width:460px;
+  margin:20px;
+  padding:38px;
+  text-align:center;
+}
+
+.caja h3{margin-top:0}
+
+.cookies{
+  display:none;
+  position:fixed;
+  left:20px;
+  right:20px;
+  bottom:20px;
+  max-width:900px;
+  margin:auto;
+  background:var(--blanco);
+  color:var(--texto);
+  padding:22px;
+  z-index:4000;
+  box-shadow:0 10px 35px rgba(0,0,0,.18);
+}
+
+.cookies button{
+  margin:6px;
+}
+
+@media(max-width:950px){
+  nav{display:none}
+  header{grid-template-columns:50px auto 1fr}
+  .logo img{height:58px}
+  .hero h1{font-size:54px}
+  .features{grid-template-columns:1fr 1fr}
+  .split{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr 1fr}
+  .green-bar{grid-template-columns:1fr}
+  .contact-item{border-left:none;padding-left:0}
+  footer{flex-direction:column;text-align:center}
+}
+
+@media(max-width:600px){
+  header{padding:0 18px;height:82px}
+  .mobile-menu{top:82px}
+  .hero{margin-top:82px;padding:70px 28px}
+  .hero h1{font-size:44px;letter-spacing:3px}
+  .hero h2{font-size:18px}
+  .features{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -82,154 +436,201 @@ h2{font-size:40px}
 <body>
 
 <header>
-  <div class="menu-wrap">
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
-    <div id="menuList" class="menu-list">
-      <a href="#villa" onclick="cerrarMenu()" data-key="menuVilla">La Villa</a>
-      <a href="#servicios" onclick="cerrarMenu()" data-key="menuServicios">Servicios</a>
-      <a href="#galeria" onclick="cerrarMenu()" data-key="menuGaleria">Galería</a>
-      <a href="#ubicacion" onclick="cerrarMenu()" data-key="menuUbicacion">Ubicación</a>
-      <button onclick="mostrarAviso(); cerrarMenu();" data-key="menuDisponibilidad">Disponibilidad</button>
-      <a href="#contacto" onclick="cerrarMenu()" data-key="menuContacto">Contacto</a>
-    </div>
-  </div>
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-  <div class="logo">Villa del Relax</div>
+  <a href="#" class="logo">
+    <img src="logo.png" alt="Villa del Relax Fuerteventura">
+  </a>
+
+  <nav>
+    <a href="#villa">LA VILLA</a>
+    <a href="#servicios">SERVICIOS</a>
+    <a href="#galeria">GALERÍA</a>
+    <a href="#resenas">RESEÑAS</a>
+    <a href="#ubicacion">UBICACIÓN</a>
+    <button onclick="mostrarAviso()">DISPONIBILIDAD</button>
+    <a href="#contacto">CONTACTO</a>
+  </nav>
 
   <div class="idiomas">
-    <svg class="globo" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18"></path><path d="M12 3a14 14 0 0 0 0 18"></path></svg>
-    <select class="idioma-select" onchange="cambiarIdioma(this.value)">
-      <option value="es">ES</option>
-      <option value="ca">CA</option>
-      <option value="en">EN</option>
-      <option value="de">DE</option>
-      <option value="fr">FR</option>
-      <option value="it">IT</option>
+    <svg class="globo" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"></circle>
+      <path d="M3 12h18"></path>
+      <path d="M12 3a14 14 0 0 1 0 18"></path>
+      <path d="M12 3a14 14 0 0 0 0 18"></path>
+    </svg>
+    <select>
+      <option>ES</option>
+      <option>CA</option>
+      <option>EN</option>
+      <option>DE</option>
+      <option>FR</option>
+      <option>IT</option>
     </select>
   </div>
 </header>
 
-<section class="hero">
-  <div>
-    <h1>Villa del Relax</h1>
+<div id="mobileMenu" class="mobile-menu">
+  <a href="#villa" onclick="cerrarMenu()">LA VILLA</a>
+  <a href="#servicios" onclick="cerrarMenu()">SERVICIOS</a>
+  <a href="#galeria" onclick="cerrarMenu()">GALERÍA</a>
+  <a href="#resenas" onclick="cerrarMenu()">RESEÑAS</a>
+  <a href="#ubicacion" onclick="cerrarMenu()">UBICACIÓN</a>
+  <button onclick="mostrarAviso();cerrarMenu()">DISPONIBILIDAD</button>
+  <a href="#contacto" onclick="cerrarMenu()">CONTACTO</a>
+</div>
+
+<section class="hero" id="villa">
+  <div class="hero-content">
+    <h1>VILLA DEL RELAX</h1>
+    <h2>CORRALEJO · FUERTEVENTURA</h2>
     <div class="linea"></div>
-    <p data-key="heroText">Luxury Villa · Corralejo · Fuerteventura</p>
+    <p>Tu refugio privado en Fuerteventura. Disfruta de la tranquilidad, el sol y el confort en un entorno único.</p>
+    <a href="#servicios" class="btn btn-gold">DESCUBRIR LA VILLA</a>
+    <button class="btn btn-outline" onclick="mostrarAviso()">DISPONIBILIDAD</button>
   </div>
 </section>
 
-<section id="villa">
-  <h2 data-key="villaTitle">Tu refugio privado</h2>
-  <p class="descripcion" data-key="villaText">
-    Villa del Relax es una vivienda vacacional pensada para disfrutar con calma.
-    Espacios amplios, jardín privado, piscina privada climatizada y todo lo necesario
-    para compartir unos días inolvidables en Corralejo, a solo 10 minutos de las Dunas.
-  </p>
+<section class="features" id="servicios">
+  <div class="feature"><strong>Piscina privada</strong>climatizada</div>
+  <div class="feature"><strong>Hasta 10</strong>personas</div>
+  <div class="feature"><strong>4 habitaciones</strong>amplias</div>
+  <div class="feature"><strong>3 baños</strong>uno exterior</div>
+  <div class="feature"><strong>Cerca de la playa</strong>y las Dunas</div>
 </section>
 
-<section id="servicios" class="servicios">
-  <h2 data-key="servicesTitle">Todo lo que necesitas</h2>
-  <div class="lista-servicios">
-    <div data-key="s1">Piscina privada climatizada</div><div data-key="s2">Jardín privado</div>
-    <div data-key="s3">4 habitaciones</div><div data-key="s4">Capacidad para 10 personas</div>
-    <div data-key="s5">3 baños, uno exterior junto a la piscina</div><div data-key="s6">Cocina totalmente equipada</div>
-    <div data-key="s7">WiFi</div><div data-key="s8">Barbacoa</div>
-    <div data-key="s9">Toallas y ropa de cama</div><div data-key="s10">Toallas de playa</div>
-    <div data-key="s11">Se admiten mascotas</div><div data-key="s12">Cerca de la playa</div>
-    <div data-key="s13">A 10 minutos de las Dunas</div><div data-key="s14">Zona tranquila</div>
+<section class="split">
+  <div class="reviews" id="resenas">
+    <div class="section-label">Reseñas</div>
+    <h3>Lo que dicen nuestros huéspedes</h3>
+    <p class="sub">Aquí añadiremos tus reseñas reales.</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="stars">★★★★★</div>
+        <p>“La villa estaba impecable y el trato fue excelente.”</p>
+        <div class="source">Booking.com</div>
+      </div>
+      <div class="card">
+        <div class="stars">★★★★★</div>
+        <p>“Ubicación perfecta, piscina preciosa y todo lo necesario.”</p>
+        <div class="source">Google</div>
+      </div>
+      <div class="card">
+        <div class="stars">★★★★★</div>
+        <p>“A beautiful villa in a quiet area. We loved our stay.”</p>
+        <div class="source">VRBO</div>
+      </div>
+      <div class="card">
+        <div class="stars">★★★★★</div>
+        <p>“Una estancia perfecta. Muy recomendable.”</p>
+        <div class="source">Holidu</div>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:26px">
+      <a class="btn btn-gold" href="#">VER TODAS LAS RESEÑAS</a>
+    </p>
+  </div>
+
+  <div class="location" id="ubicacion">
+    <div class="section-label">Ubicación</div>
+    <h3>Corralejo, Fuerteventura</h3>
+    <p>Villa del Relax se encuentra en una zona tranquila de Corralejo, a pocos minutos de playas, restaurantes, supermercados y del Parque Natural de las Dunas.</p>
+
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps?q=Corralejo%20Fuerteventura%20Villa%20del%20Relax&output=embed"
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <p style="margin-top:24px">
+      <a class="btn btn-gold" target="_blank" href="https://maps.app.goo.gl/pQ2RsCDxVPcY7Pj37">ABRIR EN GOOGLE MAPS</a>
+    </p>
   </div>
 </section>
 
-<section id="galeria" class="galeria">
-  <h2 data-key="galleryTitle">Galería</h2>
-  <div class="carousel">
-    <img src="hero.jpg" class="active"><img src="hero.jpg"><img src="hero.jpg">
+<section class="green-bar" id="contacto">
+  <div>
+    <div class="green-title">RESERVA TU ESTANCIA</div>
+    <div class="linea"></div>
+    <p>Contacta con nosotros directamente.</p>
   </div>
-  <div class="puntos">
-    <button class="active" onclick="irFoto(0)"></button>
-    <button onclick="irFoto(1)"></button>
-    <button onclick="irFoto(2)"></button>
+
+  <div class="contact-item">
+    <strong>LLAMAR</strong>
+    <a href="tel:+34666157193">+34 666 157 193</a>
   </div>
-</section>
 
-<section id="ubicacion" class="ubicacion">
-  <h2 data-key="locationTitle">Ubicación</h2>
-  <p class="descripcion" data-key="locationText">
-    Villa del Relax se encuentra en una zona tranquila de Corralejo, Fuerteventura,
-    a pocos minutos de playas, restaurantes, supermercados y del Parque Natural de las Dunas.
-  </p>
-  <div class="mapa-placeholder" data-key="mapText">Aquí añadiremos el mapa de ubicación</div>
-  <p style="text-align:center">
-    <a class="btn btn-dark" href="https://maps.app.goo.gl/pQ2RsCDxVPcY7Pj37" target="_blank" data-key="openMaps">Abrir en Google Maps</a>
-  </p>
-</section>
+  <div class="contact-item">
+    <strong>WHATSAPP</strong>
+    <a href="https://wa.me/34666157193">+34 666 157 193</a>
+  </div>
 
-<section id="contacto" class="contacto">
-  <h2 data-key="bookingTitle">Reserva</h2>
-  <a class="btn btn-light" href="tel:+34666157193" data-key="call">Llamar</a>
-  <a class="btn btn-light" href="https://wa.me/34666157193" data-key="whatsapp">WhatsApp</a>
-  <a class="btn btn-light" href="mailto:villadelrelaxftv@gmail.com">Email</a>
-  <button class="btn btn-light" onclick="mostrarAviso()" data-key="availability">Disponibilidad</button>
+  <div class="contact-item">
+    <strong>EMAIL</strong>
+    <a href="mailto:villadelrelaxftv@gmail.com">villadelrelaxftv@gmail.com</a>
+  </div>
+
+  <div class="contact-item">
+    <strong>DISPONIBILIDAD</strong>
+    <button onclick="mostrarAviso()">Consultar calendario</button>
+  </div>
 </section>
 
 <footer>
-  <p>Villa del Relax · Corralejo · Fuerteventura</p>
-  <p><a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a> · <a href="aviso-legal.html">Aviso legal</a></p>
+  <div>© 2025 Villa del Relax · Corralejo · Fuerteventura</div>
+  <div>
+    <a href="aviso-legal.html">Aviso legal</a>
+    <a href="privacidad.html">Política de privacidad</a>
+    <a href="cookies.html">Política de cookies</a>
+  </div>
 </footer>
 
 <div id="popup" class="popup">
   <div class="caja">
-    <h2 data-key="popupTitle">Consultar disponibilidad</h2>
-    <p data-key="popupText">Serás redirigido al calendario oficial de reservas gestionado por Holidu.</p>
-    <button class="btn" onclick="cerrarPopup()" data-key="cancel">Cancelar</button>
-    <button class="btn btn-light" onclick="window.location.href='https://villa-delrelax.vacation-bookings.com/'" data-key="continue">Continuar</button>
+    <h3>Consultar disponibilidad</h3>
+    <p>Serás redirigido al calendario oficial de reservas gestionado por Holidu.</p>
+    <button class="btn" onclick="cerrarPopup()">Cancelar</button>
+    <button class="btn btn-gold" onclick="window.location.href='https://villa-delrelax.vacation-bookings.com/'">Continuar</button>
   </div>
 </div>
 
-<div id="cookiesBanner" class="cookies-banner">
-  <strong data-key="cookiesTitle">Cookies</strong>
-  <p data-key="cookiesText">Utilizamos cookies técnicas necesarias para el funcionamiento de la web. Con tu consentimiento también podremos utilizar cookies analíticas para mejorar la experiencia.</p>
-  <div class="cookies-actions">
-    <button class="btn btn-light" onclick="rechazarCookies()" data-key="reject">Rechazar</button>
-    <button class="btn btn-light" onclick="configurarCookies()" data-key="settings">Configurar</button>
-    <button class="btn btn-light" onclick="aceptarCookies()" data-key="accept">Aceptar todas</button>
-  </div>
+<div id="cookies" class="cookies">
+  <strong>Cookies</strong>
+  <p>Utilizamos cookies técnicas necesarias y, con tu consentimiento, cookies analíticas para mejorar la experiencia.</p>
+  <button class="btn" onclick="rechazarCookies()">Rechazar</button>
+  <button class="btn" onclick="configurarCookies()">Configurar</button>
+  <button class="btn btn-gold" onclick="aceptarCookies()">Aceptar todas</button>
 </div>
 
 <script>
-function toggleMenu(){document.getElementById("menuList").classList.toggle("abierto")}
-function cerrarMenu(){document.getElementById("menuList").classList.remove("abierto")}
-document.addEventListener("click",e=>{if(!document.querySelector(".menu-wrap").contains(e.target))cerrarMenu()})
-
-function mostrarAviso(){document.getElementById("popup").style.display="flex"}
-function cerrarPopup(){document.getElementById("popup").style.display="none"}
-
-let fotoActual=0;
-const fotos=document.querySelectorAll(".carousel img");
-const puntos=document.querySelectorAll(".puntos button");
-function mostrarFoto(n){fotos.forEach(f=>f.classList.remove("active"));puntos.forEach(p=>p.classList.remove("active"));fotos[n].classList.add("active");puntos[n].classList.add("active")}
-function irFoto(n){fotoActual=n;mostrarFoto(fotoActual)}
-setInterval(()=>{fotoActual=(fotoActual+1)%fotos.length;mostrarFoto(fotoActual)},5000)
-
-function aceptarCookies(){localStorage.setItem("cookies","aceptadas");document.getElementById("cookiesBanner").style.display="none"}
-function rechazarCookies(){localStorage.setItem("cookies","rechazadas");document.getElementById("cookiesBanner").style.display="none"}
-function configurarCookies(){alert("Más adelante añadiremos un panel de preferencias.")}
-if(!localStorage.getItem("cookies")){document.getElementById("cookiesBanner").style.display="block"}
-
-const textos={
-es:{menuVilla:"La Villa",menuServicios:"Servicios",menuGaleria:"Galería",menuUbicacion:"Ubicación",menuDisponibilidad:"Disponibilidad",menuContacto:"Contacto",heroText:"Luxury Villa · Corralejo · Fuerteventura",villaTitle:"Tu refugio privado",villaText:"Villa del Relax es una vivienda vacacional pensada para disfrutar con calma. Espacios amplios, jardín privado, piscina privada climatizada y todo lo necesario para compartir unos días inolvidables en Corralejo, a solo 10 minutos de las Dunas.",servicesTitle:"Todo lo que necesitas",galleryTitle:"Galería",locationTitle:"Ubicación",locationText:"Villa del Relax se encuentra en una zona tranquila de Corralejo, Fuerteventura, a pocos minutos de playas, restaurantes, supermercados y del Parque Natural de las Dunas.",mapText:"Aquí añadiremos el mapa de ubicación",openMaps:"Abrir en Google Maps",bookingTitle:"Reserva",call:"Llamar",whatsapp:"WhatsApp",availability:"Disponibilidad",popupTitle:"Consultar disponibilidad",popupText:"Serás redirigido al calendario oficial de reservas gestionado por Holidu.",cancel:"Cancelar",continue:"Continuar",cookiesTitle:"Cookies",cookiesText:"Utilizamos cookies técnicas necesarias para el funcionamiento de la web. Con tu consentimiento también podremos utilizar cookies analíticas para mejorar la experiencia.",reject:"Rechazar",settings:"Configurar",accept:"Aceptar todas",s1:"Piscina privada climatizada",s2:"Jardín privado",s3:"4 habitaciones",s4:"Capacidad para 10 personas",s5:"3 baños, uno exterior junto a la piscina",s6:"Cocina totalmente equipada",s7:"WiFi",s8:"Barbacoa",s9:"Toallas y ropa de cama",s10:"Toallas de playa",s11:"Se admiten mascotas",s12:"Cerca de la playa",s13:"A 10 minutos de las Dunas",s14:"Zona tranquila"},
-en:{menuVilla:"The Villa",menuServicios:"Amenities",menuGaleria:"Gallery",menuUbicacion:"Location",menuDisponibilidad:"Availability",menuContacto:"Contact",heroText:"Luxury Villa · Corralejo · Fuerteventura",villaTitle:"Your private retreat",villaText:"Villa del Relax is a holiday home designed for calm and comfort. Spacious areas, private garden, private heated pool and everything you need to enjoy unforgettable days in Corralejo, just 10 minutes from the Dunes.",servicesTitle:"Everything you need",galleryTitle:"Gallery",locationTitle:"Location",locationText:"Villa del Relax is located in a quiet area of Corralejo, Fuerteventura, just minutes from beaches, restaurants, supermarkets and the Natural Park of the Dunes.",mapText:"Location map will be added here",openMaps:"Open in Google Maps",bookingTitle:"Book your stay",call:"Call",whatsapp:"WhatsApp",availability:"Availability",popupTitle:"Check availability",popupText:"You will be redirected to the official booking calendar managed by Holidu.",cancel:"Cancel",continue:"Continue",cookiesTitle:"Cookies",cookiesText:"We use technical cookies necessary for the website to work. With your consent, we may also use analytics cookies to improve the experience.",reject:"Reject",settings:"Settings",accept:"Accept all",s1:"Private heated pool",s2:"Private garden",s3:"4 bedrooms",s4:"Sleeps 10 guests",s5:"3 bathrooms, one outside by the pool",s6:"Fully equipped kitchen",s7:"WiFi",s8:"Barbecue",s9:"Towels and bed linen",s10:"Beach towels",s11:"Pets welcome",s12:"Close to the beach",s13:"10 minutes from the Dunes",s14:"Quiet area"},
-ca:{menuVilla:"La Vila",menuServicios:"Serveis",menuGaleria:"Galeria",menuUbicacion:"Ubicació",menuDisponibilidad:"Disponibilitat",menuContacto:"Contacte",heroText:"Luxury Villa · Corralejo · Fuerteventura",villaTitle:"El teu refugi privat",villaText:"Villa del Relax és una casa vacacional pensada per gaudir amb calma. Espais amplis, jardí privat, piscina privada climatitzada i tot el necessari per compartir uns dies inoblidables a Corralejo, a només 10 minuts de les Dunes.",servicesTitle:"Tot el que necessites",galleryTitle:"Galeria",locationTitle:"Ubicació",locationText:"Villa del Relax es troba en una zona tranquil·la de Corralejo, Fuerteventura, a pocs minuts de platges, restaurants, supermercats i del Parc Natural de les Dunes.",mapText:"Aquí afegirem el mapa d'ubicació",openMaps:"Obrir a Google Maps",bookingTitle:"Reserva",call:"Trucar",whatsapp:"WhatsApp",availability:"Disponibilitat",popupTitle:"Consultar disponibilitat",popupText:"Seràs redirigit al calendari oficial de reserves gestionat per Holidu.",cancel:"Cancel·lar",continue:"Continuar",cookiesTitle:"Cookies",cookiesText:"Utilitzem cookies tècniques necessàries per al funcionament del web. Amb el teu consentiment també podrem utilitzar cookies analítiques per millorar l'experiència.",reject:"Rebutjar",settings:"Configurar",accept:"Acceptar totes",s1:"Piscina privada climatitzada",s2:"Jardí privat",s3:"4 habitacions",s4:"Capacitat per a 10 persones",s5:"3 banys, un exterior al costat de la piscina",s6:"Cuina totalment equipada",s7:"WiFi",s8:"Barbacoa",s9:"Tovalloles i roba de llit",s10:"Tovalloles de platja",s11:"S'admeten mascotes",s12:"A prop de la platja",s13:"A 10 minuts de les Dunes",s14:"Zona tranquil·la"}
-};
-
-textos.de={...textos.en,menuVilla:"Die Villa",menuServicios:"Ausstattung",menuGaleria:"Galerie",menuUbicacion:"Lage",menuDisponibilidad:"Verfügbarkeit",menuContacto:"Kontakt",villaTitle:"Ihr privater Rückzugsort",bookingTitle:"Buchung",call:"Anrufen",availability:"Verfügbarkeit",cancel:"Abbrechen",continue:"Weiter"};
-textos.fr={...textos.en,menuVilla:"La Villa",menuServicios:"Services",menuGaleria:"Galerie",menuUbicacion:"Emplacement",menuDisponibilidad:"Disponibilités",menuContacto:"Contact",villaTitle:"Votre refuge privé",bookingTitle:"Réservation",call:"Appeler",availability:"Disponibilités",cancel:"Annuler",continue:"Continuer"};
-textos.it={...textos.en,menuVilla:"La Villa",menuServicios:"Servizi",menuGaleria:"Galleria",menuUbicacion:"Posizione",menuDisponibilidad:"Disponibilità",menuContacto:"Contatto",villaTitle:"Il tuo rifugio privato",bookingTitle:"Prenota",call:"Chiama",availability:"Disponibilità",cancel:"Annulla",continue:"Continua"};
-
-function cambiarIdioma(idioma){
-  document.querySelectorAll("[data-key]").forEach(el=>{
-    const key=el.getAttribute("data-key");
-    if(textos[idioma] && textos[idioma][key]) el.textContent=textos[idioma][key];
-  });
+function toggleMenu(){
+  document.getElementById("mobileMenu").classList.toggle("abierto");
+}
+function cerrarMenu(){
+  document.getElementById("mobileMenu").classList.remove("abierto");
+}
+function mostrarAviso(){
+  document.getElementById("popup").style.display="flex";
+}
+function cerrarPopup(){
+  document.getElementById("popup").style.display="none";
+}
+function aceptarCookies(){
+  localStorage.setItem("cookies","aceptadas");
+  document.getElementById("cookies").style.display="none";
+}
+function rechazarCookies(){
+  localStorage.setItem("cookies","rechazadas");
+  document.getElementById("cookies").style.display="none";
+}
+function configurarCookies(){
+  alert("Más adelante añadiremos un panel de preferencias.");
+}
+if(!localStorage.getItem("cookies")){
+  document.getElementById("cookies").style.display="block";
 }
 </script>
 
