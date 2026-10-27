@@ -4,34 +4,41 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Villa del Relax | Corralejo, Fuerteventura</title>
+  <meta name="description" content="Villa privada con piscina climatizada en Corralejo, Fuerteventura. Hasta 10 personas, jardín privado, barbacoa y ubicación tranquila cerca de las Dunas." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="icon" href="logo.png">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header class="header">
+<header class="header" id="header">
   <div class="logo-box">
     <img src="logo.png" alt="Villa del Relax" class="logo">
   </div>
 
-  <nav class="nav">
-    <a href="#villa" data-i18n="menuVilla">LA VILLA</a>
-    <a href="#galeria" data-i18n="menuGaleria">GALERÍA</a>
-    <a href="#servicios" data-i18n="menuServicios">SERVICIOS</a>
-    <a href="#resenas" data-i18n="menuResenas">RESEÑAS</a>
-    <a href="#ubicacion" data-i18n="menuUbicacion">UBICACIÓN</a>
-    <button type="button" onclick="openAvailability()" data-i18n="menuDisponibilidad">DISPONIBILIDAD</button>
-    <a href="#contacto" data-i18n="menuContacto">CONTACTO</a>
+  <button class="mobile-toggle" type="button" onclick="toggleMobileMenu()" aria-label="Abrir menú">☰</button>
+
+  <nav class="nav" id="mainNav">
+    <a href="#villa" data-i18n="menuVilla">La Villa</a>
+    <a href="#galeria" data-i18n="menuGaleria">Galería</a>
+    <a href="#servicios" data-i18n="menuServicios">Servicios</a>
+    <a href="#resenas" data-i18n="menuResenas">Reseñas</a>
+    <a href="#ubicacion" data-i18n="menuUbicacion">Ubicación</a>
+    <a href="#contacto" data-i18n="menuDisponibilidad">Disponibilidad</a>
+    <a href="#contacto" data-i18n="menuContacto">Contacto</a>
   </nav>
 
   <div class="language-box">
-    <span class="globe">◎</span>
-    <select id="languageSelect" onchange="changeLanguage(this.value)">
+    <span class="globe" aria-hidden="true">
+      <i class="fa-solid fa-globe"></i>
+    </span>
+
+    <select id="languageSelect" aria-label="Seleccionar idioma">
       <option value="es">ES</option>
       <option value="ca">CA</option>
       <option value="en">EN</option>
@@ -43,39 +50,74 @@
 </header>
 
 <main>
-
   <section class="hero">
     <div class="hero-content">
       <h1>VILLA DEL RELAX</h1>
       <h2>CORRALEJO · FUERTEVENTURA</h2>
       <div class="gold-line"></div>
       <p data-i18n="heroText">Tu refugio de calma en Fuerteventura.</p>
-
       <a href="#villa" class="btn btn-gold" data-i18n="discover">DESCUBRIR LA VILLA</a>
       <button class="btn btn-outline" onclick="openAvailability()" data-i18n="availability">DISPONIBILIDAD</button>
     </div>
+  </section>
+
+  <section class="trust-strip">
+    <div><strong>4.9/5</strong><span data-i18n="trustRating">Valoración media de huéspedes</span></div>
+    <div><strong>Booking · Google · Holidu · VRBO</strong><span data-i18n="trustPlatforms">Reseñas verificadas</span></div>
   </section>
 
   <section id="villa" class="section intro-section">
     <p class="section-label" data-i18n="villaLabel">La Villa</p>
     <h3 data-i18n="villaTitle">Un espacio para desconectar</h3>
     <p class="intro-text" data-i18n="villaText">
-      Villa del Relax es una vivienda vacacional amplia, luminosa y pensada para disfrutar sin prisas.
-      Cuenta con jardín privado, piscina privada climatizada, zonas exteriores para compartir y todo lo necesario para una estancia cómoda en Corralejo.
+      Villa del Relax es una vivienda vacacional amplia, luminosa y pensada para disfrutar sin prisas. Cuenta con jardín privado, piscina privada climatizada, zonas exteriores para compartir y todo lo necesario para una estancia cómoda en Corralejo.
     </p>
   </section>
 
+  <!-- GALERÍA COMPLETA MODIFICADA -->
   <section id="galeria" class="section gallery-section">
     <p class="section-label" data-i18n="galleryLabel">Galería</p>
     <h3 data-i18n="galleryTitle">Descubre la villa</h3>
 
+    <div class="gallery-filters" id="galleryFilters"></div>
+
     <div class="gallery-viewer">
-      <button class="gallery-arrow left" onclick="prevPhoto()">‹</button>
-      <img id="mainGalleryImage" src="hero.jpg" alt="Villa del Relax">
-      <button class="gallery-arrow right" onclick="nextPhoto()">›</button>
+      <button class="gallery-arrow left" onclick="prevPhoto()" aria-label="Foto anterior">‹</button>
+      <img id="mainGalleryImage" src="images/hero.jpg" alt="Villa del Relax" onclick="openLightbox()">
+      <button class="gallery-arrow right" onclick="nextPhoto()" aria-label="Foto siguiente">›</button>
     </div>
 
-    <div class="gallery-thumbs" id="galleryThumbs"></div>
+    <div class="gallery-caption" id="galleryCaption"></div>
+
+    <!-- Lista completa de tus fotos dentro de la carpeta images/ -->
+    <div class="gallery-thumbs" id="galleryThumbs">
+      <img src="images/hero.jpg" alt="Villa del Relax - Vista principal" class="thumb active" onclick="selectPhoto(0)">
+      <img src="images/gBarbecue.jpg" alt="Zona de barbacoa" class="thumb" onclick="selectPhoto(1)">
+      <img src="images/gBath1.jpg" alt="Baño principal" class="thumb" onclick="selectPhoto(2)">
+      <img src="images/gBatht2.jpg" alt="Baño secundario" class="thumb" onclick="selectPhoto(3)">
+      <img src="images/gDouble.jpg" alt="Habitación doble" class="thumb" onclick="selectPhoto(4)">
+      <img src="images/gDouble2.jpg" alt="Habitación doble adicional" class="thumb" onclick="selectPhoto(5)">
+      <img src="images/gEntrance.jpg" alt="Entrada a la villa" class="thumb" onclick="selectPhoto(6)">
+      <img src="images/gExterior.jpg" alt="Zona exterior" class="thumb" onclick="selectPhoto(7)">
+      <img src="images/gFachada.jpg" alt="Fachada exterior" class="thumb" onclick="selectPhoto(8)">
+      <img src="images/gFamily.jpg" alt="Habitación familiar" class="thumb" onclick="selectPhoto(9)">
+      <img src="images/gFamily2.jpg" alt="Habitación familiar vista alternativa" class="thumb" onclick="selectPhoto(10)">
+      <img src="images/gGarden.jpg" alt="Jardín privado" class="thumb" onclick="selectPhoto(11)">
+      <img src="images/gKitchen1.jpg" alt="Cocina totalmente equipada" class="thumb" onclick="selectPhoto(12)">
+      <img src="images/gKitchen2.jpg" alt="Detalle de la cocina" class="thumb" onclick="selectPhoto(13)">
+      <img src="images/gLiving.jpg" alt="Salón comedor" class="thumb" onclick="selectPhoto(14)">
+      <img src="images/gLiving2.jpg" alt="Salón amplio" class="thumb" onclick="selectPhoto(15)">
+      <img src="images/gMaster.jpg" alt="Dormitorio principal" class="thumb" onclick="selectPhoto(16)">
+      <img src="images/gMaster2.jpg" alt="Dormitorio principal vista interior" class="thumb" onclick="selectPhoto(17)">
+      <img src="images/gPingpong.jpg" alt="Mesa de ping-pong" class="thumb" onclick="selectPhoto(18)">
+      <img src="images/gPoolday.jpg" alt="Piscina de día" class="thumb" onclick="selectPhoto(19)">
+      <img src="images/gPoolday2.jpg" alt="Piscina climatizada de día" class="thumb" onclick="selectPhoto(20)">
+      <img src="images/gPoolNight.jpg" alt="Piscina iluminada de noche" class="thumb" onclick="selectPhoto(21)">
+      <img src="images/gSofa.jpg" alt="Zona de descanso con sofá" class="thumb" onclick="selectPhoto(22)">
+      <img src="images/gSofa2.jpg" alt="Zona de descanso exterior" class="thumb" onclick="selectPhoto(23)">
+      <img src="images/gTerrace.jpg" alt="Terraza principal" class="thumb" onclick="selectPhoto(24)">
+      <img src="images/gTerraceNight.jpg" alt="Terraza iluminada de noche" class="thumb" onclick="selectPhoto(25)">
+    </div>
   </section>
 
   <section class="quick-features">
@@ -119,29 +161,10 @@
       <p class="subtext" data-i18n="reviewsSub">Aquí añadiremos tus reseñas reales.</p>
 
       <div class="review-cards">
-        <article class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>“Pendiente de reseña real.”</p>
-          <strong>Booking.com</strong>
-        </article>
-
-        <article class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>“Pendiente de reseña real.”</p>
-          <strong>Google</strong>
-        </article>
-
-        <article class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>“Pendiente de reseña real.”</p>
-          <strong>VRBO</strong>
-        </article>
-
-        <article class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>“Pendiente de reseña real.”</p>
-          <strong>Holidu</strong>
-        </article>
+        <article class="review-card"><div class="stars">★★★★★</div><p data-i18n="r1">“Pendiente de reseña real.”</p><strong>Booking.com</strong></article>
+        <article class="review-card"><div class="stars">★★★★★</div><p data-i18n="r2">“Pendiente de reseña real.”</p><strong>Google</strong></article>
+        <article class="review-card"><div class="stars">★★★★★</div><p data-i18n="r3">“Pendiente de reseña real.”</p><strong>VRBO</strong></article>
+        <article class="review-card"><div class="stars">★★★★★</div><p data-i18n="r4">“Pendiente de reseña real.”</p><strong>Holidu</strong></article>
       </div>
     </div>
 
@@ -174,7 +197,9 @@
     </div>
 
     <div class="contact-item">
-      <a class="contact-icon" href="https://wa.me/34666157193" aria-label="WhatsApp">◉</a>
+      <a class="contact-icon" href="https://wa.me/34666157193" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
       <strong>WHATSAPP</strong>
       <span>+34 666 157 193</span>
     </div>
@@ -191,17 +216,24 @@
       <span data-i18n="calendar">Consultar calendario</span>
     </div>
   </section>
-
 </main>
 
 <footer class="footer">
-  <div>© 2025 Villa del Relax · Corralejo · Fuerteventura</div>
+  <div>© 2026 Villa del Relax · Corralejo · Fuerteventura</div>
   <div>
-    <a href="aviso-legal.html">Aviso legal</a>
-    <a href="privacidad.html">Política de privacidad</a>
-    <a href="cookies.html">Política de cookies</a>
+    <a href="aviso-legal.html" data-i18n="legalNotice">Aviso legal</a>
+    <a href="privacidad.html" data-i18n="privacyPolicy">Política de privacidad</a>
+    <a href="cookies.html" data-i18n="cookiesPolicy">Política de cookies</a>
   </div>
 </footer>
+
+<div id="lightbox" class="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <button class="lightbox-arrow left" onclick="prevPhoto()">‹</button>
+  <img id="lightboxImage" src="images/hero.jpg" alt="Villa del Relax">
+  <button class="lightbox-arrow right" onclick="nextPhoto()">›</button>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
 
 <div id="availabilityPopup" class="popup">
   <div class="popup-box">
@@ -220,8 +252,7 @@
   <button class="btn btn-gold" onclick="acceptCookies()" data-i18n="accept">Aceptar todas</button>
 </div>
 
-<script src="translations.js"></script>
 <script src="script.js"></script>
-
+<script src="translations.js"></script>
 </body>
 </html>
