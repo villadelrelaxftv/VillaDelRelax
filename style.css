@@ -1,1 +1,380 @@
+/* ==========================================
+   VILLA DEL RELAX - ESTILOS PRINCIPALES
+   ========================================== */
 
+:root {
+  --primary-color: #0b2545;
+  --gold-color: #c5a059;
+  --gold-hover: #a3813e;
+  --bg-light: #f8f9fa;
+  --text-dark: #222222;
+  --text-muted: #666666;
+  --white: #ffffff;
+  --font-heading: 'Marcellus', serif;
+  --font-body: 'Poppins', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  background-color: var(--white);
+  line-height: 1.6;
+}
+
+/* ENCABEZADO Y NAVEGACIÓN */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+}
+
+.logo-box .logo {
+  height: 50px;
+  width: auto;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: var(--gold-color);
+}
+
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.language-box {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.language-box select {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-family: var(--font-body);
+}
+
+/* BOTONES */
+.btn {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn-gold {
+  background-color: var(--gold-color);
+  color: var(--white);
+}
+
+.btn-gold:hover {
+  background-color: var(--gold-hover);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--white);
+  color: var(--white);
+}
+
+.btn-outline:hover {
+  background: var(--white);
+  color: var(--primary-color);
+}
+
+/* SECCIÓN HERO (PORTADA) */
+.hero {
+  position: relative;
+  background: linear-gradient(rgba(11, 37, 69, 0.45), rgba(11, 37, 69, 0.45)), url('images/hero.jpg') center/cover no-repeat;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--white);
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  letter-spacing: 2px;
+}
+
+.hero-content h2 {
+  font-weight: 300;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  margin-top: 5px;
+}
+
+.gold-line {
+  width: 60px;
+  height: 2px;
+  background-color: var(--gold-color);
+  margin: 15px auto;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+
+/* SECCIONES EN GENERAL */
+.section {
+  padding: 60px 8%;
+  text-align: center;
+}
+
+.section-label {
+  color: var(--gold-color);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.section h3 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.trust-strip {
+  background-color: var(--bg-light);
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 5%;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+.trust-strip div strong {
+  display: block;
+  color: var(--primary-color);
+}
+
+.trust-strip div span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* GALERÍA DE FOTOS */
+.gallery-section {
+  background-color: var(--bg-light);
+}
+
+.gallery-viewer {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.gallery-viewer img {
+  width: 100%;
+  max-height: 550px;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+}
+
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--white);
+  border: none;
+  font-size: 2rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.gallery-arrow:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.gallery-arrow.left { left: 15px; }
+.gallery-arrow.right { right: 15px; }
+
+.gallery-thumbs {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.gallery-thumbs img {
+  width: 100px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.gallery-thumbs img:hover,
+.gallery-thumbs img.active {
+  opacity: 1;
+  transform: scale(1.05);
+  border: 2px solid var(--gold-color);
+}
+
+/* SERVICIOS Y CARACTERÍSTICAS */
+.quick-features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 30px 5%;
+  text-align: center;
+}
+
+.quick-features strong {
+  display: block;
+  color: var(--gold-color);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-top: 30px;
+  text-align: left;
+}
+
+.services-grid div {
+  background: var(--bg-light);
+  padding: 12px 18px;
+  border-radius: 6px;
+  border-left: 3px solid var(--gold-color);
+  font-size: 0.95rem;
+}
+
+/* CONTACTO Y MAPA */
+.split-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 60px 8%;
+}
+
+.map-box iframe {
+  width: 100%;
+  height: 250px;
+  border: none;
+  border-radius: 8px;
+  margin: 15px 0;
+}
+
+.contact-section {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 50px 8%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+  text-align: center;
+}
+
+.contact-item .contact-icon {
+  font-size: 1.8rem;
+  color: var(--gold-color);
+  margin-bottom: 8px;
+  display: block;
+  text-decoration: none;
+}
+
+.contact-item strong {
+  display: block;
+  font-size: 0.9rem;
+}
+
+.contact-item span {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* PIE DE PÁGINA */
+.footer {
+  background-color: #061528;
+  color: #888;
+  padding: 20px 5%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer a {
+  color: #aaa;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+/* RESPONSIVE PARA MÓVILES */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+  .mobile-toggle {
+    display: block;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .split-section {
+    grid-template-columns: 1fr;
+  }
+}
